@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Kinetic Oasis 手机版添加或编辑加油记录。">
+  <meta name="description" content="Kinetic Oasis 鎵嬫満鐗堟坊鍔犳垨缂栬緫鍔犳补璁板綍銆?>
   <meta name="theme-color" content="#4d6300">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Kinetic Oasis">
-  <title>Kinetic Oasis - 添加记录</title>
+  <title>Kinetic Oasis - 娣诲姞璁板綍</title>
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icons/icon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
@@ -16,7 +16,7 @@
 </head>
 <body data-page="add" data-nav-group="add">
   <header class="topbar">
-    <a class="icon-button" href="./logs.html" aria-label="关闭并返回记录">
+    <a class="icon-button" href="./logs.html" aria-label="鍏抽棴骞惰繑鍥炶褰?>
       <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M6 6l12 12"></path>
         <path d="M18 6 6 18"></path>
@@ -25,7 +25,7 @@
     <div class="topbar-brand topbar-brand-centered">
       <div class="brand-copy">
         <p class="eyebrow">Fuel Entry</p>
-        <h1 class="brand-title" id="addPageHeading">添加加油记录</h1>
+        <h1 class="brand-title" id="addPageHeading">娣诲姞鍔犳补璁板綍</h1>
         <p class="page-subtitle" id="addPageHint"></p>
       </div>
     </div>
@@ -37,7 +37,7 @@
       <section class="hero-card hero-primary">
         <div class="hero-layout">
           <div>
-            <p class="hero-kicker">总支出</p>
+            <p class="hero-kicker">鎬绘敮鍑?/p>
             <div class="hero-row">
               <h2 class="hero-heading hero-heading-money" id="addTotalAmount">0.00</h2>
               <span class="hero-unit">CNY</span>
@@ -50,25 +50,25 @@
         <section class="panel soft">
           <div class="field-grid entry-grid">
             <label class="field">
-              <span class="field-label">交易日期</span>
+              <span class="field-label">浜ゆ槗鏃ユ湡</span>
               <div class="field-control">
                 <input class="field-input" id="recordDate" type="date" required>
               </div>
             </label>
             <label class="field">
-              <span class="field-label">当前里程 (km)</span>
+              <span class="field-label">褰撳墠閲岀▼ (km)</span>
               <div class="field-control">
-                <input class="field-input" id="recordOdometer" type="number" min="0" step="1" placeholder="请输入当前里程" required>
+                <input class="field-input" id="recordOdometer" type="number" min="0" step="1" placeholder="璇疯緭鍏ュ綋鍓嶉噷绋? required>
               </div>
             </label>
             <label class="field">
-              <span class="field-label">加油量 (L)</span>
+              <span class="field-label">鍔犳补閲?(L)</span>
               <div class="field-control">
                 <input class="field-input" id="recordLiters" type="number" min="0" step="0.01" placeholder="0.00" required>
               </div>
             </label>
             <label class="field">
-              <span class="field-label">单价 (¥/L)</span>
+              <span class="field-label">鍗曚环 (楼/L)</span>
               <div class="field-control">
                 <input class="field-input" id="recordUnitPrice" type="number" min="0" step="0.01" placeholder="0.00" required>
               </div>
@@ -76,33 +76,33 @@
           </div>
 
           <div class="field">
-            <span class="field-label">燃油类型</span>
+            <span class="field-label">鐕冩补绫诲瀷</span>
             <div class="chip-group" id="fuelTypeGroup">
-              <button class="chip-button" type="button" data-fuel-type="92# 汽油">92# 汽油</button>
-              <button class="chip-button" type="button" data-fuel-type="95# 汽油">95# 汽油</button>
-              <button class="chip-button" type="button" data-fuel-type="98# 汽油">98# 汽油</button>
-              <button class="chip-button" type="button" data-fuel-type="柴油">柴油</button>
+              <button class="chip-button" type="button" data-fuel-type="92# 姹芥补">92# 姹芥补</button>
+              <button class="chip-button" type="button" data-fuel-type="95# 姹芥补">95# 姹芥补</button>
+              <button class="chip-button" type="button" data-fuel-type="98# 姹芥补">98# 姹芥补</button>
+              <button class="chip-button" type="button" data-fuel-type="鏌存补">鏌存补</button>
             </div>
           </div>
 
           <label class="field">
-            <span class="field-label">油站名称</span>
+            <span class="field-label">娌圭珯鍚嶇О</span>
             <div class="field-control">
-              <input class="field-input" id="recordStation" type="text" maxlength="48" placeholder="例如：中石化科技园站">
+              <input class="field-input" id="recordStation" type="text" maxlength="48" placeholder="渚嬪锛氫腑鐭冲寲绉戞妧鍥珯">
             </div>
           </label>
 
           <label class="field">
-            <span class="field-label">备注</span>
+            <span class="field-label">澶囨敞</span>
             <div class="field-control input-block">
-              <textarea class="field-textarea" id="recordNote" placeholder="例如：节假日前加满"></textarea>
+              <textarea class="field-textarea" id="recordNote" placeholder="渚嬪锛氳妭鍋囨棩鍓嶅姞婊?></textarea>
             </div>
           </label>
 
           <div class="toggle-row">
             <div class="toggle-copy">
-              <strong>本次已加满</strong>
-              <span>满油记录会参与油耗区间计算</span>
+              <strong>鏈宸插姞婊?/strong>
+              <span>婊℃补璁板綍浼氬弬涓庢补鑰楀尯闂磋绠?/span>
             </div>
             <label class="toggle-switch">
               <input id="recordFullTank" type="checkbox">
@@ -114,10 +114,10 @@
         <p class="form-message" id="addFormMessage" hidden></p>
 
         <div class="button-row">
-          <button class="button" type="submit">确认并保存</button>
-          <a class="button-secondary" href="./logs.html">取消</a>
+          <button class="button" type="submit">纭骞朵繚瀛?/button>
+          <a class="button-secondary" href="./logs.html">鍙栨秷</a>
           <div id="deleteRecordWrap" hidden>
-            <button class="button button-danger" id="deleteRecordButton" type="button">删除当前记录</button>
+            <button class="button button-danger" id="deleteRecordButton" type="button">鍒犻櫎褰撳墠璁板綍</button>
           </div>
         </div>
       </form>
@@ -126,13 +126,13 @@
   </div>
 
   <div class="bottom-nav-wrap">
-    <nav class="bottom-nav" aria-label="主导航">
+    <nav class="bottom-nav" aria-label="涓诲鑸?>
       <a class="nav-item" href="./index.html" data-nav="dashboard">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 12.5 12 5l8 7.5"></path>
           <path d="M6.5 10.5V19h11v-8.5"></path>
         </svg>
-        <span class="nav-label">仪表盘</span>
+        <span class="nav-label">浠〃鐩?/span>
       </a>
       <a class="nav-item" href="./logs.html" data-nav="logs">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -143,7 +143,7 @@
           <path d="M4 12h.01"></path>
           <path d="M4 18h.01"></path>
         </svg>
-        <span class="nav-label">记录</span>
+        <span class="nav-label">璁板綍</span>
       </a>
       <a class="nav-item" href="./stats.html" data-nav="stats">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -152,18 +152,18 @@
           <path d="M12 15V6"></path>
           <path d="M17 15v-3"></path>
         </svg>
-        <span class="nav-label">趋势</span>
+        <span class="nav-label">瓒嬪娍</span>
       </a>
       <a class="nav-item" href="./add.html" data-nav="add">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 5v14"></path>
           <path d="M5 12h14"></path>
         </svg>
-        <span class="nav-label">新增</span>
+        <span class="nav-label">鏂板</span>
       </a>
     </nav>
   </div>
 
-  <script src="./app.js"></script>
+  <script src="./app-clean.js"></script>
 </body>
 </html>

@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Kinetic Oasis 设置页，用于车辆偏好、备份导入导出和 PWA 安装。">
+  <meta name="description" content="Kinetic Oasis 璁剧疆">
   <meta name="theme-color" content="#4d6300">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Kinetic Oasis">
-  <title>Kinetic Oasis - 设置</title>
+  <title>Kinetic Oasis - 璁剧疆</title>
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icons/icon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
@@ -17,15 +17,13 @@
 <body data-page="settings" data-nav-group="settings">
   <div class="app-shell">
     <header class="topbar">
-      <a class="icon-button" href="./index.html" aria-label="返回仪表盘">
+      <a class="icon-button" href="./index.html" aria-label="杩斿洖浠〃鐩?>
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15 18 9 12l6-6"></path>
         </svg>
       </a>
       <div class="topbar-copy">
-        <p class="eyebrow">Settings</p>
-        <h1 class="page-title">设置</h1>
-        <p class="page-subtitle">管理车辆信息、本地数据备份以及应用安装状态。</p>
+        <h1 class="page-title">璁剧疆</h1>
       </div>
       <span class="avatar-chip" aria-hidden="true">KO</span>
     </header>
@@ -33,80 +31,65 @@
     <main class="main-stack">
       <section class="hero-card hero-surface">
         <div class="hero-layout">
-          <div>
-            <p class="hero-kicker">本地数据状态</p>
-            <div class="hero-chip-row">
-              <span class="hero-chip">记录：<strong id="settingsRecordCount">0 条</strong></span>
-              <span class="hero-chip">油站：<strong id="settingsStationCount">0 个</strong></span>
-              <span class="hero-chip">最近同步：<strong id="settingsLatestSync">尚无本地记录</strong></span>
-            </div>
+          <div class="hero-chip-row">
+            <span class="hero-chip">璁板綍锛?strong id="settingsRecordCount">0 鏉?/strong></span>
+            <span class="hero-chip">娌圭珯锛?strong id="settingsStationCount">0 涓?/strong></span>
+            <span class="hero-chip">鍚屾锛?strong id="settingsLatestSync">鏆傛棤</strong></span>
           </div>
         </div>
       </section>
 
       <form class="panel soft" id="settingsForm">
         <div class="section-head">
-          <div>
-            <p class="section-title">车辆偏好</p>
-            <h2>基础参数</h2>
-          </div>
+          <h2>杞﹁締</h2>
         </div>
         <div class="field-grid">
           <label class="field">
-            <span class="field-label">车辆名称</span>
+            <span class="field-label">杞﹁締鍚嶇О</span>
             <div class="field-control">
-              <input class="field-input" id="vehicleName" type="text" maxlength="40" placeholder="例如：Kinetic Oasis">
+              <input class="field-input" id="vehicleName" type="text" maxlength="40" placeholder="Kinetic Oasis">
             </div>
           </label>
           <label class="field">
-            <span class="field-label">油箱容量 (L)</span>
+            <span class="field-label">娌圭瀹归噺 (L)</span>
             <div class="field-control">
               <input class="field-input" id="tankCapacity" type="number" min="10" max="120" step="1" placeholder="55">
             </div>
           </label>
           <label class="field">
-            <span class="field-label">默认燃油类型</span>
+            <span class="field-label">榛樿鐕冩补绫诲瀷</span>
             <div class="field-control">
               <select class="field-select" id="preferredFuelType"></select>
             </div>
           </label>
         </div>
         <div class="button-row">
-          <button class="button" type="submit">保存设置</button>
+          <button class="button" type="submit">淇濆瓨璁剧疆</button>
         </div>
       </form>
 
       <section class="panel highlight">
         <div class="section-head">
-          <div>
-            <p class="section-title">PWA 安装</p>
-            <h2>主屏幕入口</h2>
-          </div>
+          <h2>PWA 瀹夎</h2>
         </div>
         <div class="status-list">
           <div class="status-item">
-            <div>
-              <strong>安装状态</strong>
-              <span class="muted" id="installStatus">请在支持的浏览器中打开站点，浏览器满足条件后会给出安装入口。</span>
-            </div>
-            <button class="button-secondary" id="installButton" type="button" hidden>安装应用</button>
+            <strong id="installStatus">鐘舵€?/strong>
+            <button class="button-secondary" id="installButton" type="button" hidden>瀹夎搴旂敤</button>
           </div>
         </div>
       </section>
 
       <section class="panel">
         <div class="section-head">
-          <div>
-            <p class="section-title">数据管理</p>
-            <h2>导出与恢复</h2>
-          </div>
+          <h2>鏁版嵁</h2>
         </div>
         <div class="button-row">
-          <button class="button-secondary" id="exportCsvButton" type="button">导出 CSV</button>
-          <button class="button-secondary" id="exportJsonButton" type="button">导出 JSON 备份</button>
-          <button class="button-secondary" id="importJsonButton" type="button">导入 JSON 备份</button>
-          <button class="button-secondary" id="loadSampleButton" type="button">载入示例数据</button>
-          <button class="button button-danger" id="clearDataButton" type="button">清空全部数据</button>
+          <button class="button-secondary" id="exportCsvButton" type="button">瀵煎嚭 CSV</button>
+          <button class="button-secondary" id="exportJsonButton" type="button">瀵煎嚭 JSON</button>
+          <button class="button-secondary" id="importJsonButton" type="button">瀵煎叆 JSON</button>
+          <button class="button-secondary" id="loadSampleButton" type="button">鍔犺浇绀轰緥</button>
+          <button class="button button-danger" id="clearDataButton" type="button">娓呯┖鏁版嵁</button>
         </div>
         <input class="file-input" id="importJsonInput" type="file" accept="application/json">
       </section>
@@ -117,13 +100,13 @@
   </div>
 
   <div class="bottom-nav-wrap">
-    <nav class="bottom-nav" aria-label="主导航">
+    <nav class="bottom-nav" aria-label="涓诲鑸?>
       <a class="nav-item" href="./index.html" data-nav="dashboard">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 12.5 12 5l8 7.5"></path>
           <path d="M6.5 10.5V19h11v-8.5"></path>
         </svg>
-        <span class="nav-label">仪表盘</span>
+        <span class="nav-label">浠〃鐩?/span>
       </a>
       <a class="nav-item" href="./logs.html" data-nav="logs">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -134,7 +117,7 @@
           <path d="M4 12h.01"></path>
           <path d="M4 18h.01"></path>
         </svg>
-        <span class="nav-label">记录</span>
+        <span class="nav-label">璁板綍</span>
       </a>
       <a class="nav-item" href="./stations.html" data-nav="stations">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -142,18 +125,18 @@
           <path d="M7 11h9"></path>
           <path d="M16 8h2l1 2v5"></path>
         </svg>
-        <span class="nav-label">油站</span>
+        <span class="nav-label">娌圭珯</span>
       </a>
       <a class="nav-item" href="./settings.html" data-nav="settings">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 8.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 1 0 12 8.5z"></path>
           <path d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a1 1 0 0 1 0 1.4l-1.2 1.2a1 1 0 0 1-1.4 0l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V20a1 1 0 0 1-1 1h-1.8a1 1 0 0 1-1-1v-.1a1 1 0 0 0-.6-.9 1 1 0 0 0-1.1.2l-.1.1a1 1 0 0 1-1.4 0l-1.2-1.2a1 1 0 0 1 0-1.4l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H4a1 1 0 0 1-1-1v-1.8a1 1 0 0 1 1-1h.1a1 1 0 0 0 .9-.6 1 1 0 0 0-.2-1.1l-.1-.1a1 1 0 0 1 0-1.4l1.2-1.2a1 1 0 0 1 1.4 0l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V4a1 1 0 0 1 1-1h1.8a1 1 0 0 1 1 1v.1a1 1 0 0 0 .6.9 1 1 0 0 0 1.1-.2l.1-.1a1 1 0 0 1 1.4 0l1.2 1.2a1 1 0 0 1 0 1.4l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6H20a1 1 0 0 1 1 1v1.8a1 1 0 0 1-1 1h-.1a1 1 0 0 0-.9.6z"></path>
         </svg>
-        <span class="nav-label">设置</span>
+        <span class="nav-label">璁剧疆</span>
       </a>
     </nav>
   </div>
 
-  <script src="./app.js"></script>
+  <script src="./app-clean.js"></script>
 </body>
 </html>

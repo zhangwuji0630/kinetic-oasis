@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Kinetic Oasis 手机版加油日志，可查看、筛选、编辑和删除本地记录。">
+  <meta name="description" content="Kinetic Oasis 鎵嬫満鐗堝姞娌规棩蹇楋紝鍙煡鐪嬨€佺瓫閫夈€佺紪杈戝拰鍒犻櫎鏈湴璁板綍銆?>
   <meta name="theme-color" content="#4d6300">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Kinetic Oasis">
-  <title>Kinetic Oasis - 加油日志</title>
+  <title>Kinetic Oasis - 鍔犳补鏃ュ織</title>
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icons/icon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
@@ -16,7 +16,7 @@
 </head>
 <body data-page="logs" data-nav-group="logs">
   <header class="topbar">
-    <a class="icon-button" href="./index.html" aria-label="返回仪表盘">
+    <a class="icon-button" href="./index.html" aria-label="杩斿洖浠〃鐩?>
       <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M15 18 9 12l6-6"></path>
       </svg>
@@ -24,10 +24,10 @@
     <div class="topbar-brand topbar-brand-centered">
       <div class="brand-copy">
         <p class="eyebrow">Fuel Records</p>
-        <h1 class="brand-title">加油日志</h1>
+        <h1 class="brand-title">鍔犳补鏃ュ織</h1>
       </div>
     </div>
-    <a class="icon-button icon-button-primary" href="./add.html" aria-label="添加记录">
+    <a class="icon-button icon-button-primary" href="./add.html" aria-label="娣诲姞璁板綍">
       <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12 5v14"></path>
         <path d="M5 12h14"></path>
@@ -42,49 +42,49 @@
       <section class="hero-card hero-primary">
         <div class="hero-layout">
           <div>
-            <p class="hero-kicker">当前筛选支出</p>
+            <p class="hero-kicker">褰撳墠绛涢€夋敮鍑?/p>
             <div class="hero-row">
-              <h2 class="hero-heading hero-heading-money" id="logsFilteredSpend">¥ 0.00</h2>
+              <h2 class="hero-heading hero-heading-money" id="logsFilteredSpend">楼 0.00</h2>
             </div>
           </div>
           <div class="hero-chip-row">
-            <span class="hero-chip">记录数：<strong id="logsFilteredCount">0 条</strong></span>
-            <span class="hero-chip">总油量：<strong id="logsFilteredLiters">0.00 L</strong></span>
+            <span class="hero-chip">璁板綍鏁帮細<strong id="logsFilteredCount">0 鏉?/strong></span>
+            <span class="hero-chip">鎬绘补閲忥細<strong id="logsFilteredLiters">0.00 L</strong></span>
           </div>
-          <p class="hero-copy" id="logsFilterSummary">当前展示 0 条记录。</p>
+          <p class="hero-copy" id="logsFilterSummary">褰撳墠灞曠ず 0 鏉¤褰曘€?/p>
         </div>
       </section>
 
       <section class="panel soft">
         <div class="section-head">
           <div>
-            <p class="section-title">筛选条件</p>
-            <h2>快速定位记录</h2>
+            <p class="section-title">绛涢€夋潯浠?/p>
+            <h2>蹇€熷畾浣嶈褰?/h2>
           </div>
         </div>
         <div class="filters-grid">
           <label class="field">
-            <span class="field-label">月份</span>
+            <span class="field-label">鏈堜唤</span>
             <div class="field-control">
               <select class="field-select" id="logsMonthFilter"></select>
             </div>
           </label>
           <label class="field">
-            <span class="field-label">燃油类型</span>
+            <span class="field-label">鐕冩补绫诲瀷</span>
             <div class="field-control">
               <select class="field-select" id="logsFuelFilter"></select>
             </div>
           </label>
           <label class="field">
-            <span class="field-label">油站</span>
+            <span class="field-label">娌圭珯</span>
             <div class="field-control">
               <select class="field-select" id="logsStationFilter"></select>
             </div>
           </label>
           <label class="field">
-            <span class="field-label">关键词</span>
+            <span class="field-label">鍏抽敭璇?/span>
             <div class="field-control">
-              <input class="field-input" id="logsSearch" type="search" placeholder="搜索油站、备注或日期">
+              <input class="field-input" id="logsSearch" type="search" placeholder="鎼滅储娌圭珯銆佸娉ㄦ垨鏃ユ湡">
             </div>
           </label>
         </div>
@@ -93,8 +93,8 @@
       <section class="panel">
         <div class="section-head">
           <div>
-            <p class="section-title">记录列表</p>
-            <h2>按日期倒序</h2>
+            <p class="section-title">璁板綍鍒楄〃</p>
+            <h2>鎸夋棩鏈熷€掑簭</h2>
           </div>
         </div>
         <div class="record-list" id="logsList"></div>
@@ -103,7 +103,7 @@
     </main>
   </div>
 
-  <a class="fab" href="./add.html" aria-label="新增记录">
+  <a class="fab" href="./add.html" aria-label="鏂板璁板綍">
     <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M12 5v14"></path>
       <path d="M5 12h14"></path>
@@ -111,13 +111,13 @@
   </a>
 
   <div class="bottom-nav-wrap">
-    <nav class="bottom-nav" aria-label="主导航">
+    <nav class="bottom-nav" aria-label="涓诲鑸?>
       <a class="nav-item" href="./index.html" data-nav="dashboard">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 12.5 12 5l8 7.5"></path>
           <path d="M6.5 10.5V19h11v-8.5"></path>
         </svg>
-        <span class="nav-label">仪表盘</span>
+        <span class="nav-label">浠〃鐩?/span>
       </a>
       <a class="nav-item" href="./logs.html" data-nav="logs">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -128,7 +128,7 @@
           <path d="M4 12h.01"></path>
           <path d="M4 18h.01"></path>
         </svg>
-        <span class="nav-label">记录</span>
+        <span class="nav-label">璁板綍</span>
       </a>
       <a class="nav-item" href="./stats.html" data-nav="stats">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -137,18 +137,18 @@
           <path d="M12 15V6"></path>
           <path d="M17 15v-3"></path>
         </svg>
-        <span class="nav-label">趋势</span>
+        <span class="nav-label">瓒嬪娍</span>
       </a>
       <a class="nav-item" href="./add.html" data-nav="add">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 5v14"></path>
           <path d="M5 12h14"></path>
         </svg>
-        <span class="nav-label">新增</span>
+        <span class="nav-label">鏂板</span>
       </a>
     </nav>
   </div>
 
-  <script src="./app.js"></script>
+  <script src="./app-clean.js"></script>
 </body>
 </html>

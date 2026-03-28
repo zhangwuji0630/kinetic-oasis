@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Kinetic Oasis 油站页，聚合查看每个油站的到访次数、均价和最近记录。">
+  <meta name="description" content="Kinetic Oasis 娌圭珯鍒楄〃">
   <meta name="theme-color" content="#4d6300">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Kinetic Oasis">
-  <title>Kinetic Oasis - 油站</title>
+  <title>Kinetic Oasis - 娌圭珯</title>
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icons/icon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
@@ -17,17 +17,15 @@
 <body data-page="stations" data-nav-group="stations">
   <div class="app-shell">
     <header class="topbar">
-      <a class="icon-button" href="./index.html" aria-label="返回仪表盘">
+      <a class="icon-button" href="./index.html" aria-label="杩斿洖浠〃鐩?>
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15 18 9 12l6-6"></path>
         </svg>
       </a>
       <div class="topbar-copy">
-        <p class="eyebrow">Station Index</p>
-        <h1 class="page-title">油站</h1>
-        <p class="page-subtitle">按油站聚合比较价格、频次和近期消费。</p>
+        <h1 class="page-title">娌圭珯</h1>
       </div>
-      <a class="icon-button" href="./add.html" aria-label="新增加油记录">
+      <a class="icon-button" href="./add.html" aria-label="鏂板璁板綍">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 5v14"></path>
           <path d="M5 12h14"></path>
@@ -39,41 +37,33 @@
       <section class="hero-card hero-surface">
         <div class="hero-layout">
           <div>
-            <p class="hero-kicker">油站汇总</p>
+            <p class="hero-kicker">娌圭珯鏁伴噺</p>
             <div class="hero-row">
-              <h2 class="hero-heading" id="stationsUniqueCount">0 个</h2>
-              <span class="hero-unit">站点</span>
+              <h2 class="hero-heading" id="stationsUniqueCount">0 涓?/h2>
             </div>
-            <p class="hero-copy">每条记录里填写的油站名称都会在这里自动归档、聚合并排序。</p>
           </div>
           <div class="hero-chip-row">
-            <span class="hero-chip">最常去：<strong id="stationsMostVisited">暂无</strong></span>
-            <span class="hero-chip">最低均价：<strong id="stationsBestPrice">--</strong></span>
+            <span class="hero-chip">鏈€甯稿幓锛?strong id="stationsMostVisited">鏆傛棤</strong></span>
+            <span class="hero-chip">鏈€浣庡潎浠凤細<strong id="stationsBestPrice">--</strong></span>
           </div>
         </div>
       </section>
 
       <section class="panel highlight">
         <div class="section-head">
-          <div>
-            <p class="section-title">查找油站</p>
-            <h2>按名称搜索</h2>
-          </div>
+          <h2>鎼滅储</h2>
         </div>
         <label class="field">
-          <span class="field-label">关键词</span>
+          <span class="field-label">娌圭珯鍚嶇О</span>
           <div class="field-control">
-            <input class="field-input" id="stationSearch" type="search" placeholder="例如：中石化、壳牌、虹桥">
+            <input class="field-input" id="stationSearch" type="search" placeholder="杈撳叆鍏抽敭璇?>
           </div>
         </label>
       </section>
 
       <section class="panel">
         <div class="section-head">
-          <div>
-            <p class="section-title">聚合列表</p>
-            <h2>油站对比</h2>
-          </div>
+          <h2>娌圭珯鍒楄〃</h2>
         </div>
         <div class="station-list" id="stationsList"></div>
       </section>
@@ -82,13 +72,13 @@
   </div>
 
   <div class="bottom-nav-wrap">
-    <nav class="bottom-nav" aria-label="主导航">
+    <nav class="bottom-nav" aria-label="涓诲鑸?>
       <a class="nav-item" href="./index.html" data-nav="dashboard">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 12.5 12 5l8 7.5"></path>
           <path d="M6.5 10.5V19h11v-8.5"></path>
         </svg>
-        <span class="nav-label">仪表盘</span>
+        <span class="nav-label">浠〃鐩?/span>
       </a>
       <a class="nav-item" href="./logs.html" data-nav="logs">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -99,7 +89,7 @@
           <path d="M4 12h.01"></path>
           <path d="M4 18h.01"></path>
         </svg>
-        <span class="nav-label">记录</span>
+        <span class="nav-label">璁板綍</span>
       </a>
       <a class="nav-item" href="./stations.html" data-nav="stations">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -107,18 +97,18 @@
           <path d="M7 11h9"></path>
           <path d="M16 8h2l1 2v5"></path>
         </svg>
-        <span class="nav-label">油站</span>
+        <span class="nav-label">娌圭珯</span>
       </a>
       <a class="nav-item" href="./settings.html" data-nav="settings">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 8.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 1 0 12 8.5z"></path>
           <path d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a1 1 0 0 1 0 1.4l-1.2 1.2a1 1 0 0 1-1.4 0l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V20a1 1 0 0 1-1 1h-1.8a1 1 0 0 1-1-1v-.1a1 1 0 0 0-.6-.9 1 1 0 0 0-1.1.2l-.1.1a1 1 0 0 1-1.4 0l-1.2-1.2a1 1 0 0 1 0-1.4l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H4a1 1 0 0 1-1-1v-1.8a1 1 0 0 1 1-1h.1a1 1 0 0 0 .9-.6 1 1 0 0 0-.2-1.1l-.1-.1a1 1 0 0 1 0-1.4l1.2-1.2a1 1 0 0 1 1.4 0l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V4a1 1 0 0 1 1-1h1.8a1 1 0 0 1 1 1v.1a1 1 0 0 0 .6.9 1 1 0 0 0 1.1-.2l.1-.1a1 1 0 0 1 1.4 0l1.2 1.2a1 1 0 0 1 0 1.4l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6H20a1 1 0 0 1 1 1v1.8a1 1 0 0 1-1 1h-.1a1 1 0 0 0-.9.6z"></path>
         </svg>
-        <span class="nav-label">设置</span>
+        <span class="nav-label">璁剧疆</span>
       </a>
     </nav>
   </div>
 
-  <script src="./app.js"></script>
+  <script src="./app-clean.js"></script>
 </body>
 </html>

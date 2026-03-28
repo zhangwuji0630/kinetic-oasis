@@ -1,0 +1,360 @@
+{
+  "exportedAt": "2026-03-28T15:18:48.433Z",
+  "settings": {
+    "preferredFuelType": "95# 汽油"
+  },
+  "records": [
+    {
+      "date": "2025-07-17",
+      "liters": 38.57,
+      "unitPrice": 7.0003,
+      "totalCost": 270,
+      "odometer": 43788,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    },
+    {
+      "date": "2025-07-27",
+      "liters": 38.57,
+      "unitPrice": 7.0003,
+      "totalCost": 270,
+      "odometer": 44184,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    },
+    {
+      "date": "2025-08-01",
+      "liters": 24.29,
+      "unitPrice": 6.9988,
+      "totalCost": 170,
+      "odometer": 44640,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": false,
+      "note": ""
+    },
+    {
+      "date": "2025-08-05",
+      "liters": 41.86,
+      "unitPrice": 6.9995,
+      "totalCost": 293,
+      "odometer": 44854,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    },
+    {
+      "date": "2025-08-13",
+      "liters": 25.71,
+      "unitPrice": 7.0012,
+      "totalCost": 180,
+      "odometer": 45463,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": false,
+      "note": ""
+    },
+    {
+      "date": "2025-08-19",
+      "liters": 26.43,
+      "unitPrice": 6.9996,
+      "totalCost": 185,
+      "odometer": 45754,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": false,
+      "note": ""
+    },
+    {
+      "date": "2025-08-21",
+      "liters": 28.86,
+      "unitPrice": 6.9993,
+      "totalCost": 202,
+      "odometer": 46072,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": false,
+      "note": ""
+    },
+    {
+      "date": "2025-08-27",
+      "liters": 39.43,
+      "unitPrice": 6.9997,
+      "totalCost": 276,
+      "odometer": 46337,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    },
+    {
+      "date": "2025-09-05",
+      "liters": 24.57,
+      "unitPrice": 7.0004,
+      "totalCost": 172,
+      "odometer": 46752,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": false,
+      "note": ""
+    },
+    {
+      "date": "2025-09-11",
+      "liters": 36.43,
+      "unitPrice": 6.9997,
+      "totalCost": 255,
+      "odometer": 47013,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    },
+    {
+      "date": "2025-09-20",
+      "liters": 36.43,
+      "unitPrice": 6.9997,
+      "totalCost": 255,
+      "odometer": 47422,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    },
+    {
+      "date": "2025-09-29",
+      "liters": 36.43,
+      "unitPrice": 6.9997,
+      "totalCost": 255,
+      "odometer": 47860,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    },
+    {
+      "date": "2025-10-02",
+      "liters": 26.14,
+      "unitPrice": 7.0008,
+      "totalCost": 183,
+      "odometer": 48046,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    },
+    {
+      "date": "2025-10-07",
+      "liters": 28.57,
+      "unitPrice": 7.0004,
+      "totalCost": 200,
+      "odometer": 48467,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    },
+    {
+      "date": "2025-10-17",
+      "liters": 13.43,
+      "unitPrice": 6.9993,
+      "totalCost": 94,
+      "odometer": 48974,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": false,
+      "note": ""
+    },
+    {
+      "date": "2025-10-21",
+      "liters": 26.71,
+      "unitPrice": 7.0011,
+      "totalCost": 187,
+      "odometer": 49101,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": false,
+      "note": ""
+    },
+    {
+      "date": "2025-10-27",
+      "liters": 26.43,
+      "unitPrice": 6.9996,
+      "totalCost": 185,
+      "odometer": 49401,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": false,
+      "note": ""
+    },
+    {
+      "date": "2025-11-05",
+      "liters": 36.43,
+      "unitPrice": 6.9997,
+      "totalCost": 255,
+      "odometer": 49687,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    },
+    {
+      "date": "2025-11-18",
+      "liters": 32.86,
+      "unitPrice": 6.9994,
+      "totalCost": 230,
+      "odometer": 50116,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": false,
+      "note": ""
+    },
+    {
+      "date": "2025-11-21",
+      "liters": 28.57,
+      "unitPrice": 7.0004,
+      "totalCost": 200,
+      "odometer": 50516,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": false,
+      "note": ""
+    },
+    {
+      "date": "2025-11-28",
+      "liters": 36.43,
+      "unitPrice": 6.9997,
+      "totalCost": 255,
+      "odometer": 50861,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    },
+    {
+      "date": "2025-12-02",
+      "liters": 36.43,
+      "unitPrice": 6.9997,
+      "totalCost": 255,
+      "odometer": 51401,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    },
+    {
+      "date": "2025-12-13",
+      "liters": 37.14,
+      "unitPrice": 7.0005,
+      "totalCost": 260,
+      "odometer": 51861,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    },
+    {
+      "date": "2025-12-23",
+      "liters": 44.29,
+      "unitPrice": 6.9993,
+      "totalCost": 310,
+      "odometer": 52205,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    },
+    {
+      "date": "2026-01-07",
+      "liters": 41,
+      "unitPrice": 6.2927,
+      "totalCost": 258,
+      "odometer": 52731,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    },
+    {
+      "date": "2026-02-11",
+      "liters": 26.86,
+      "unitPrice": 6.9993,
+      "totalCost": 188,
+      "odometer": 53215,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": false,
+      "note": ""
+    },
+    {
+      "date": "2026-02-24",
+      "liters": 29.43,
+      "unitPrice": 6.9997,
+      "totalCost": 206,
+      "odometer": 53467,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": false,
+      "note": ""
+    },
+    {
+      "date": "2026-03-04",
+      "liters": 26.71,
+      "unitPrice": 7.0011,
+      "totalCost": 187,
+      "odometer": 53856,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": false,
+      "note": ""
+    },
+    {
+      "date": "2026-03-06",
+      "liters": 27,
+      "unitPrice": 5.9259,
+      "totalCost": 160,
+      "odometer": 53951,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    },
+    {
+      "date": "2026-03-15",
+      "liters": 24,
+      "unitPrice": 7.625,
+      "totalCost": 183,
+      "odometer": 54512,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": false,
+      "note": ""
+    },
+    {
+      "date": "2026-03-19",
+      "liters": 36.11,
+      "unitPrice": 7.311,
+      "totalCost": 264,
+      "odometer": 54896,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    },
+    {
+      "date": "2026-03-23",
+      "liters": 24.37,
+      "unitPrice": 7.5092,
+      "totalCost": 183,
+      "odometer": 55009,
+      "fuelType": "95# 汽油",
+      "station": "中石化",
+      "isFullTank": true,
+      "note": ""
+    }
+  ]
+}
