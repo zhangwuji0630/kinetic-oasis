@@ -1,148 +1,328 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Kinetic Oasis 鎵嬫満鐗堢粺璁¤秼鍔块〉锛岀敤浜庢煡鐪嬫补鑰椼€佹敮鍑哄拰浠锋牸鍙樺寲銆?>
-  <meta name="theme-color" content="#4d6300">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Kinetic Oasis">
-  <title>Kinetic Oasis - 缁熻瓒嬪娍</title>
-  <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="icon" href="./icons/icon-192.png" sizes="192x192" type="image/png">
-  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
-  <link rel="stylesheet" href="./styles.css">
-</head>
-<body data-page="stats" data-nav-group="stats">
-  <header class="topbar">
-    <a class="icon-button" href="./index.html" aria-label="杩斿洖浠〃鐩?>
-      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M15 18 9 12l6-6"></path>
-      </svg>
-    </a>
-    <div class="topbar-brand topbar-brand-centered">
-      <div class="brand-copy">
-        <p class="eyebrow">Analytics</p>
-        <h1 class="brand-title">缁熻瓒嬪娍</h1>
-      </div>
-    </div>
-    <a class="icon-button icon-button-primary" href="./add.html" aria-label="娣诲姞璁板綍">
-      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 5v14"></path>
-        <path d="M5 12h14"></path>
-      </svg>
-    </a>
-  </header>
 
-  <div class="app-shell">
-    <main class="main-stack">
-      <section class="hero-card hero-primary">
-        <div class="hero-layout">
-          <div>
-            <p class="hero-kicker">鏈湀骞冲潎娌硅€?/p>
-            <div class="hero-row">
-              <h2 class="hero-heading" id="statsEfficiency">--</h2>
-              <span class="hero-unit">L/100km</span>
-            </div>
-          </div>
-          <div class="hero-chip-row">
-            <span class="hero-chip hero-chip-strong" id="statsTrendChip">--</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="metric-grid">
-        <article class="metric-card metric-card-accent">
-          <p class="metric-label">鏈湀娌硅垂</p>
-          <p class="metric-value" id="statsMonthlySpend">楼 0.00</p>
-        </article>
-        <article class="metric-card">
-          <p class="metric-label">鍔犳补娆℃暟</p>
-          <p class="metric-value" id="statsMonthlyCount">0 娆?/p>
-        </article>
-        <article class="metric-card">
-          <p class="metric-label">骞冲潎鍗曚环</p>
-          <p class="metric-value" id="statsAveragePrice">--</p>
-        </article>
-        <article class="metric-card">
-          <p class="metric-label">鍗曟鍧囬噺</p>
-          <p class="metric-value" id="statsAverageLiters">--</p>
-        </article>
-      </section>
-
-      <section class="panel chart-panel">
-        <div class="section-head">
-          <div>
-            <p class="section-title">鏀嚭瓒嬪娍</p>
-            <h2>鏈€杩?6 涓湀</h2>
-          </div>
-        </div>
-        <div class="chart-frame" id="statsSpendChart"></div>
-      </section>
-
-      <section class="panel soft chart-panel">
-        <div class="section-head">
-          <div>
-            <p class="section-title">鍗曚环鍙樺寲</p>
-            <h2>鏈€杩?7 鏉¤褰?/h2>
-          </div>
-        </div>
-        <div class="chart-frame" id="statsPriceChart"></div>
-      </section>
-
-      <section class="panel highlight">
-        <div class="section-head">
-          <div>
-            <p class="section-title">鍏抽敭娲炲療</p>
-            <h2>鑷姩鐢熸垚鎽樿</h2>
-          </div>
-        </div>
-        <div class="insight-list" id="statsInsights"></div>
-      </section>
-      <div class="spacer-bottom"></div>
-    </main>
-  </div>
-
-  <div class="bottom-nav-wrap">
-    <nav class="bottom-nav" aria-label="涓诲鑸?>
-      <a class="nav-item" href="./index.html" data-nav="dashboard">
-        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 12.5 12 5l8 7.5"></path>
-          <path d="M6.5 10.5V19h11v-8.5"></path>
-        </svg>
-        <span class="nav-label">浠〃鐩?/span>
-      </a>
-      <a class="nav-item" href="./logs.html" data-nav="logs">
-        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7 6h10"></path>
-          <path d="M7 12h10"></path>
-          <path d="M7 18h10"></path>
-          <path d="M4 6h.01"></path>
-          <path d="M4 12h.01"></path>
-          <path d="M4 18h.01"></path>
-        </svg>
-        <span class="nav-label">璁板綍</span>
-      </a>
-      <a class="nav-item" href="./stats.html" data-nav="stats">
-        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 18h16"></path>
-          <path d="M7 15V9"></path>
-          <path d="M12 15V6"></path>
-          <path d="M17 15v-3"></path>
-        </svg>
-        <span class="nav-label">瓒嬪娍</span>
-      </a>
-      <a class="nav-item" href="./add.html" data-nav="add">
-        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 5v14"></path>
-          <path d="M5 12h14"></path>
-        </svg>
-        <span class="nav-label">鏂板</span>
-      </a>
-    </nav>
-  </div>
-
-  <script src="./app-clean.js"></script>
-</body>
-</html>
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#9c413d",
+              "on-tertiary-fixed": "#410004",
+              "on-surface": "#191c1a",
+              "on-secondary-container": "#356e3c",
+              "on-error-container": "#93000a",
+              "background": "#f8faf6",
+              "error-container": "#ffdad6",
+              "on-primary-container": "#004d1a",
+              "on-secondary": "#ffffff",
+              "secondary-fixed-dim": "#98d599",
+              "on-primary": "#ffffff",
+              "outline": "#6d7b6b",
+              "on-tertiary-fixed-variant": "#7e2a27",
+              "primary-fixed-dim": "#53e16f",
+              "secondary-container": "#b0efb0",
+              "outline-variant": "#bccbb8",
+              "on-secondary-fixed-variant": "#175123",
+              "surface": "#f8faf6",
+              "error": "#ba1a1a",
+              "surface-dim": "#d8dbd7",
+              "inverse-primary": "#53e16f",
+              "on-primary-fixed": "#002107",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed": "#002107",
+              "on-background": "#191c1a",
+              "surface-bright": "#f8faf6",
+              "surface-container-highest": "#e1e3df",
+              "secondary-fixed": "#b3f2b3",
+              "on-tertiary-container": "#772523",
+              "tertiary-fixed": "#ffdad7",
+              "on-error": "#ffffff",
+              "surface-tint": "#006e28",
+              "inverse-surface": "#2e312f",
+              "surface-container": "#eceeea",
+              "primary": "#006e28",
+              "secondary": "#316a38",
+              "primary-fixed": "#72fe88",
+              "tertiary-container": "#ff8e86",
+              "inverse-on-surface": "#eff1ed",
+              "surface-variant": "#e1e3df",
+              "on-surface-variant": "#3d4a3c",
+              "on-primary-fixed-variant": "#00531c",
+              "tertiary-fixed-dim": "#ffb3ad",
+              "primary-container": "#34c759",
+              "surface-container-high": "#e7e9e5",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f2f4f0"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "Noto Sans SC"],
+              "body": ["Manrope", "Noto Sans SC"],
+              "label": ["Manrope", "Noto Sans SC"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        body {
+            font-family: 'Manrope', 'Noto Sans SC', sans-serif;
+            background-color: #f8faf6;
+            color: #191c1a;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen pb-32 selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-xl">
+<div class="flex items-center justify-between px-6 py-4 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-green-700 dark:text-green-400 text-2xl" data-icon="local_gas_station">local_gas_station</span>
+<h1 class="text-2xl font-bold tracking-tighter text-green-800 dark:text-green-200">加个油吧</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-stone-500" data-icon="search">search</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-stone-500" data-icon="calendar_month">calendar_month</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-screen-xl mx-auto space-y-10">
+<!-- Hero Spending Section -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<p class="text-stone-500 font-medium tracking-wide flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    本月累计支出
+                </p>
+<div class="flex items-baseline gap-2">
+<span class="text-stone-400 text-3xl font-medium">¥</span>
+<h2 class="text-6xl md:text-7xl font-extrabold tracking-tighter text-on-surface">1,482.50</h2>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-low px-6 py-4 rounded-lg flex flex-col justify-center">
+<p class="text-[11px] text-stone-400 font-bold uppercase tracking-widest">加油次数</p>
+<p class="text-2xl font-bold text-on-surface">4 <span class="text-sm font-medium text-stone-400">次</span></p>
+</div>
+<div class="bg-primary-container/10 px-6 py-4 rounded-lg flex flex-col justify-center">
+<p class="text-[11px] text-green-700 font-bold uppercase tracking-widest">平均单价</p>
+<p class="text-2xl font-bold text-green-800">7.82 <span class="text-sm font-medium text-green-600">元/L</span></p>
+</div>
+</div>
+</section>
+<!-- Bento Grid Statistics -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Trend Chart Card -->
+<div class="md:col-span-2 bg-surface-container-lowest rounded-lg p-8 shadow-[0_4px_24px_rgba(0,0,0,0.02)] border border-stone-100">
+<div class="flex items-center justify-between mb-10">
+<div class="space-y-1">
+<h3 class="text-xl font-bold text-on-surface">油价波动趋势</h3>
+<p class="text-sm text-stone-400">近6个月 95# 汽油价格走势</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-stone-100 text-stone-500 text-xs font-bold rounded-full">半年</span>
+<span class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full">年度</span>
+</div>
+</div>
+<!-- Simulated Chart Area -->
+<div class="relative h-64 flex items-end justify-between gap-2">
+<!-- Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between py-2">
+<div class="w-full border-b border-stone-50 h-0"></div>
+<div class="w-full border-b border-stone-50 h-0"></div>
+<div class="w-full border-b border-stone-50 h-0"></div>
+<div class="w-full border-b border-stone-50 h-0"></div>
+</div>
+<!-- Bars / Lines -->
+<div class="relative flex-1 flex flex-col items-center group">
+<div class="w-full bg-stone-100 rounded-t-md h-[40%] group-hover:bg-primary/20 transition-colors"></div>
+<p class="mt-4 text-[10px] font-bold text-stone-400">04月</p>
+</div>
+<div class="relative flex-1 flex flex-col items-center group">
+<div class="w-full bg-stone-100 rounded-t-md h-[55%] group-hover:bg-primary/20 transition-colors"></div>
+<p class="mt-4 text-[10px] font-bold text-stone-400">05月</p>
+</div>
+<div class="relative flex-1 flex flex-col items-center group">
+<div class="w-full bg-stone-100 rounded-t-md h-[75%] group-hover:bg-primary/20 transition-colors"></div>
+<p class="mt-4 text-[10px] font-bold text-stone-400">06月</p>
+</div>
+<div class="relative flex-1 flex flex-col items-center group">
+<div class="w-full bg-stone-100 rounded-t-md h-[60%] group-hover:bg-primary/20 transition-colors"></div>
+<p class="mt-4 text-[10px] font-bold text-stone-400">07月</p>
+</div>
+<div class="relative flex-1 flex flex-col items-center group">
+<div class="w-full bg-stone-100 rounded-t-md h-[85%] group-hover:bg-primary/20 transition-colors"></div>
+<p class="mt-4 text-[10px] font-bold text-stone-400">08月</p>
+</div>
+<div class="relative flex-1 flex flex-col items-center group">
+<div class="w-full bg-primary rounded-t-md h-[92%] shadow-[0_4px_12px_rgba(0,110,40,0.2)]"></div>
+<p class="mt-4 text-[10px] font-bold text-primary">09月</p>
+</div>
+</div>
+</div>
+<!-- Side Analysis Cards -->
+<div class="flex flex-col gap-6">
+<!-- Year-over-Year Card -->
+<div class="flex-1 bg-surface-container-low rounded-lg p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="compare_arrows">compare_arrows</span>
+<span class="text-[10px] font-black text-tertiary bg-tertiary/10 px-2 py-0.5 rounded uppercase">同比分析</span>
+</div>
+<h4 class="text-sm font-bold text-stone-500">较去年同期支出</h4>
+</div>
+<div class="mt-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" data-icon="trending_up">trending_up</span>
+<span class="text-3xl font-extrabold text-on-surface">12.4%</span>
+</div>
+<p class="text-xs text-stone-400 mt-1">增加了约 ¥164.00</p>
+</div>
+</div>
+<!-- Quarter-over-Quarter Card -->
+<div class="flex-1 bg-primary/5 rounded-lg p-6 flex flex-col justify-between border border-primary/10">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="query_stats">query_stats</span>
+<span class="text-[10px] font-black text-primary bg-primary/10 px-2 py-0.5 rounded uppercase">环比分析</span>
+</div>
+<h4 class="text-sm font-bold text-stone-500">较上季度平均</h4>
+</div>
+<div class="mt-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="trending_down">trending_down</span>
+<span class="text-3xl font-extrabold text-on-surface">3.8%</span>
+</div>
+<p class="text-xs text-stone-400 mt-1">节省了约 ¥56.20</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Detailed Metric Sections -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+<div class="space-y-4">
+<h3 class="text-lg font-bold text-on-surface flex items-center gap-2">
+<span class="w-1 h-5 bg-primary rounded-full"></span>
+                    能源效率分析
+                </h3>
+<div class="bg-surface-container-lowest rounded-lg p-6 space-y-6">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-stone-600" data-icon="speed">speed</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">平均油耗</p>
+<p class="text-xs text-stone-400">基于近3次记录</p>
+</div>
+</div>
+<p class="text-xl font-bold text-on-surface">8.4 <span class="text-xs text-stone-400 font-medium">L/100km</span></p>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-stone-600" data-icon="route">route</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">月均里程</p>
+<p class="text-xs text-stone-400">本月行驶估计</p>
+</div>
+</div>
+<p class="text-xl font-bold text-on-surface">1,240 <span class="text-xs text-stone-400 font-medium">km</span></p>
+</div>
+<div class="pt-4 border-t border-stone-50">
+<div class="flex justify-between text-xs font-bold text-stone-400 mb-2">
+<span>经济性评分</span>
+<span class="text-primary">88 / 100</span>
+</div>
+<div class="w-full h-2 bg-stone-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 88%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<h3 class="text-lg font-bold text-on-surface flex items-center gap-2">
+<span class="w-1 h-5 bg-primary rounded-full"></span>
+                    消费日历分布
+                </h3>
+<div class="bg-surface-container-lowest rounded-lg p-6">
+<div class="grid grid-cols-7 gap-2">
+<!-- Simplified Calendar Visualization -->
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-primary/20 border border-primary/20"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-primary shadow-sm"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-primary/40"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-primary/60"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+<div class="aspect-square rounded-sm bg-stone-50"></div>
+</div>
+<p class="text-[10px] text-stone-400 mt-4 text-center font-medium">颜色深浅代表单次加油金额的大小</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-xl rounded-t-[3rem] pb-safe z-50 shadow-[0_-4px_24px_rgba(0,0,0,0.04)] dark:shadow-none">
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="speed">speed</span>
+<span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide mt-1">仪表盘</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="add_circle">add_circle</span>
+<span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide mt-1">记一笔</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="history">history</span>
+<span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide mt-1">记录</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-green-500/10 dark:bg-green-400/15 text-green-700 dark:text-green-300 rounded-[2rem] px-5 py-2 active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="equalizer" style="font-variation-settings: 'FILL' 1;">equalizer</span>
+<span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide mt-1">统计</span>
+</a>
+</nav>
+</body></html>

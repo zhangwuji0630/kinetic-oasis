@@ -1,169 +1,221 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Kinetic Oasis 鎵嬫満鐗堟坊鍔犳垨缂栬緫鍔犳补璁板綍銆?>
-  <meta name="theme-color" content="#4d6300">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Kinetic Oasis">
-  <title>Kinetic Oasis - 娣诲姞璁板綍</title>
-  <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="icon" href="./icons/icon-192.png" sizes="192x192" type="image/png">
-  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
-  <link rel="stylesheet" href="./styles.css">
-</head>
-<body data-page="add" data-nav-group="add">
-  <header class="topbar">
-    <a class="icon-button" href="./logs.html" aria-label="鍏抽棴骞惰繑鍥炶褰?>
-      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M6 6l12 12"></path>
-        <path d="M18 6 6 18"></path>
-      </svg>
-    </a>
-    <div class="topbar-brand topbar-brand-centered">
-      <div class="brand-copy">
-        <p class="eyebrow">Fuel Entry</p>
-        <h1 class="brand-title" id="addPageHeading">娣诲姞鍔犳补璁板綍</h1>
-        <p class="page-subtitle" id="addPageHint"></p>
-      </div>
-    </div>
-    <span class="brand-mark brand-mark-static" aria-hidden="true">KO</span>
-  </header>
 
-  <div class="app-shell">
-    <main class="main-stack">
-      <section class="hero-card hero-primary">
-        <div class="hero-layout">
-          <div>
-            <p class="hero-kicker">鎬绘敮鍑?/p>
-            <div class="hero-row">
-              <h2 class="hero-heading hero-heading-money" id="addTotalAmount">0.00</h2>
-              <span class="hero-unit">CNY</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <form class="form-stack" id="fuelForm">
-        <section class="panel soft">
-          <div class="field-grid entry-grid">
-            <label class="field">
-              <span class="field-label">浜ゆ槗鏃ユ湡</span>
-              <div class="field-control">
-                <input class="field-input" id="recordDate" type="date" required>
-              </div>
-            </label>
-            <label class="field">
-              <span class="field-label">褰撳墠閲岀▼ (km)</span>
-              <div class="field-control">
-                <input class="field-input" id="recordOdometer" type="number" min="0" step="1" placeholder="璇疯緭鍏ュ綋鍓嶉噷绋? required>
-              </div>
-            </label>
-            <label class="field">
-              <span class="field-label">鍔犳补閲?(L)</span>
-              <div class="field-control">
-                <input class="field-input" id="recordLiters" type="number" min="0" step="0.01" placeholder="0.00" required>
-              </div>
-            </label>
-            <label class="field">
-              <span class="field-label">鍗曚环 (楼/L)</span>
-              <div class="field-control">
-                <input class="field-input" id="recordUnitPrice" type="number" min="0" step="0.01" placeholder="0.00" required>
-              </div>
-            </label>
-          </div>
-
-          <div class="field">
-            <span class="field-label">鐕冩补绫诲瀷</span>
-            <div class="chip-group" id="fuelTypeGroup">
-              <button class="chip-button" type="button" data-fuel-type="92# 姹芥补">92# 姹芥补</button>
-              <button class="chip-button" type="button" data-fuel-type="95# 姹芥补">95# 姹芥补</button>
-              <button class="chip-button" type="button" data-fuel-type="98# 姹芥补">98# 姹芥补</button>
-              <button class="chip-button" type="button" data-fuel-type="鏌存补">鏌存补</button>
-            </div>
-          </div>
-
-          <label class="field">
-            <span class="field-label">娌圭珯鍚嶇О</span>
-            <div class="field-control">
-              <input class="field-input" id="recordStation" type="text" maxlength="48" placeholder="渚嬪锛氫腑鐭冲寲绉戞妧鍥珯">
-            </div>
-          </label>
-
-          <label class="field">
-            <span class="field-label">澶囨敞</span>
-            <div class="field-control input-block">
-              <textarea class="field-textarea" id="recordNote" placeholder="渚嬪锛氳妭鍋囨棩鍓嶅姞婊?></textarea>
-            </div>
-          </label>
-
-          <div class="toggle-row">
-            <div class="toggle-copy">
-              <strong>鏈宸插姞婊?/strong>
-              <span>婊℃补璁板綍浼氬弬涓庢补鑰楀尯闂磋绠?/span>
-            </div>
-            <label class="toggle-switch">
-              <input id="recordFullTank" type="checkbox">
-              <span class="toggle-slider"></span>
-            </label>
-          </div>
-        </section>
-
-        <p class="form-message" id="addFormMessage" hidden></p>
-
-        <div class="button-row">
-          <button class="button" type="submit">纭骞朵繚瀛?/button>
-          <a class="button-secondary" href="./logs.html">鍙栨秷</a>
-          <div id="deleteRecordWrap" hidden>
-            <button class="button button-danger" id="deleteRecordButton" type="button">鍒犻櫎褰撳墠璁板綍</button>
-          </div>
-        </div>
-      </form>
-      <div class="spacer-bottom"></div>
-    </main>
-  </div>
-
-  <div class="bottom-nav-wrap">
-    <nav class="bottom-nav" aria-label="涓诲鑸?>
-      <a class="nav-item" href="./index.html" data-nav="dashboard">
-        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 12.5 12 5l8 7.5"></path>
-          <path d="M6.5 10.5V19h11v-8.5"></path>
-        </svg>
-        <span class="nav-label">浠〃鐩?/span>
-      </a>
-      <a class="nav-item" href="./logs.html" data-nav="logs">
-        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7 6h10"></path>
-          <path d="M7 12h10"></path>
-          <path d="M7 18h10"></path>
-          <path d="M4 6h.01"></path>
-          <path d="M4 12h.01"></path>
-          <path d="M4 18h.01"></path>
-        </svg>
-        <span class="nav-label">璁板綍</span>
-      </a>
-      <a class="nav-item" href="./stats.html" data-nav="stats">
-        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 18h16"></path>
-          <path d="M7 15V9"></path>
-          <path d="M12 15V6"></path>
-          <path d="M17 15v-3"></path>
-        </svg>
-        <span class="nav-label">瓒嬪娍</span>
-      </a>
-      <a class="nav-item" href="./add.html" data-nav="add">
-        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 5v14"></path>
-          <path d="M5 12h14"></path>
-        </svg>
-        <span class="nav-label">鏂板</span>
-      </a>
-    </nav>
-  </div>
-
-  <script src="./app-clean.js"></script>
-</body>
-</html>
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>记一笔 - 加个油吧</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#9c413d",
+              "on-tertiary-fixed": "#410004",
+              "on-surface": "#191c1a",
+              "on-secondary-container": "#356e3c",
+              "on-error-container": "#93000a",
+              "background": "#f8faf6",
+              "error-container": "#ffdad6",
+              "on-primary-container": "#004d1a",
+              "on-secondary": "#ffffff",
+              "secondary-fixed-dim": "#98d599",
+              "on-primary": "#ffffff",
+              "outline": "#6d7b6b",
+              "on-tertiary-fixed-variant": "#7e2a27",
+              "primary-fixed-dim": "#53e16f",
+              "secondary-container": "#b0efb0",
+              "outline-variant": "#bccbb8",
+              "on-secondary-fixed-variant": "#175123",
+              "surface": "#f8faf6",
+              "error": "#ba1a1a",
+              "surface-dim": "#d8dbd7",
+              "inverse-primary": "#53e16f",
+              "on-primary-fixed": "#002107",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed": "#002107",
+              "on-background": "#191c1a",
+              "surface-bright": "#f8faf6",
+              "surface-container-highest": "#e1e3df",
+              "secondary-fixed": "#b3f2b3",
+              "on-tertiary-container": "#772523",
+              "tertiary-fixed": "#ffdad7",
+              "on-error": "#ffffff",
+              "surface-tint": "#006e28",
+              "inverse-surface": "#2e312f",
+              "surface-container": "#eceeea",
+              "primary": "#006e28",
+              "secondary": "#316a38",
+              "primary-fixed": "#72fe88",
+              "tertiary-container": "#ff8e86",
+              "inverse-on-surface": "#eff1ed",
+              "surface-variant": "#e1e3df",
+              "on-surface-variant": "#3d4a3c",
+              "on-primary-fixed-variant": "#00531c",
+              "tertiary-fixed-dim": "#ffb3ad",
+              "primary-container": "#34c759",
+              "surface-container-high": "#e7e9e5",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f2f4f0"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "PingFang SC", "sans-serif"],
+              "body": ["Manrope", "PingFang SC", "sans-serif"],
+              "label": ["Manrope", "PingFang SC", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body text-on-background selection:bg-primary-container/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-xl">
+<div class="flex items-center justify-between px-6 py-4 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-green-700 dark:text-green-400 text-2xl" data-icon="local_gas_station">local_gas_station</span>
+<h1 class="font-['Manrope','PingFang_SC'] font-semibold text-lg tracking-tight text-on-surface">加个油吧</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-stone-200/50 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-stone-500" data-icon="notifications">notifications</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-5 max-w-md mx-auto">
+<!-- Smart Paste Area -->
+<section class="mb-8">
+<div class="bg-primary-container/10 border border-primary-container/20 rounded-lg p-4 flex items-center justify-between group active:scale-[0.98] transition-all cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="content_paste_go">content_paste_go</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-primary-container">智能粘贴填充</p>
+<p class="text-xs text-on-primary-container/60">识别短信或笔记中的加油信息</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-primary-container/40 group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</section>
+<!-- Form Section -->
+<div class="space-y-4">
+<!-- Main Grid Bento -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Amount Card -->
+<div class="col-span-2 bg-surface-container-lowest rounded-lg p-5 shadow-sm border border-surface-container-high">
+<label class="text-xs font-medium text-on-surface-variant mb-1 block">加油金额 (元)</label>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold text-primary tracking-tight">¥</span>
+<input class="w-full text-4xl font-bold bg-transparent border-none p-0 focus:ring-0 placeholder:text-surface-container-highest tracking-tighter" placeholder="0.00" type="number"/>
+</div>
+</div>
+<!-- Price Card -->
+<div class="bg-surface-container-lowest rounded-lg p-5 shadow-sm border border-surface-container-high">
+<label class="text-xs font-medium text-on-surface-variant mb-1 block">当前油价</label>
+<div class="flex items-center gap-1">
+<input class="w-full text-xl font-semibold bg-transparent border-none p-0 focus:ring-0 placeholder:text-surface-container-highest" placeholder="8.24" type="number"/>
+<span class="text-xs text-on-surface-variant font-medium">元/升</span>
+</div>
+</div>
+<!-- Volume Card -->
+<div class="bg-surface-container-lowest rounded-lg p-5 shadow-sm border border-surface-container-high">
+<label class="text-xs font-medium text-on-surface-variant mb-1 block">加油量</label>
+<div class="flex items-center gap-1">
+<input class="w-full text-xl font-semibold bg-transparent border-none p-0 focus:ring-0 placeholder:text-surface-container-highest" placeholder="45.0" type="number"/>
+<span class="text-xs text-on-surface-variant font-medium">升</span>
+</div>
+</div>
+<!-- Odometer Card -->
+<div class="col-span-2 bg-surface-container-lowest rounded-lg p-5 shadow-sm border border-surface-container-high flex items-center justify-between">
+<div>
+<label class="text-xs font-medium text-on-surface-variant mb-1 block">当前总里程 (公里)</label>
+<input class="w-full text-2xl font-bold bg-transparent border-none p-0 focus:ring-0 placeholder:text-surface-container-highest tracking-tight" placeholder="24,580" type="number"/>
+</div>
+<div class="bg-surface-container-low p-2 rounded-md">
+<span class="material-symbols-outlined text-outline" data-icon="speed">speed</span>
+</div>
+</div>
+<!-- Date Card -->
+<div class="col-span-2 bg-surface-container-lowest rounded-lg p-5 shadow-sm border border-surface-container-high flex items-center justify-between">
+<div>
+<label class="text-xs font-medium text-on-surface-variant mb-1 block">日期</label>
+<input class="text-lg font-semibold bg-transparent border-none p-0 focus:ring-0 text-on-surface" type="date" value="2023-10-27"/>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="calendar_today">calendar_today</span>
+</div>
+</div>
+<!-- Fixed Fuel Type -->
+<div class="bg-surface-container-low rounded-lg px-5 py-3 flex items-center justify-between">
+<span class="text-sm font-medium text-on-surface-variant">燃油类型</span>
+<div class="flex items-center gap-2 px-3 py-1 bg-primary/10 rounded-full border border-primary/20">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-sm font-bold text-primary">95#</span>
+</div>
+</div>
+</div>
+<!-- Inspiration Card -->
+<section class="mt-8">
+<div class="bg-primary/5 rounded-md p-4 border-l-4 border-primary/40 relative overflow-hidden">
+<span class="material-symbols-outlined absolute -right-2 -top-2 text-primary/5 text-6xl rotate-12" data-icon="format_quote">format_quote</span>
+<p class="text-sm text-primary font-medium leading-relaxed italic">“我们要去的地方，不需要路。” ——《回到未来》</p>
+<div class="mt-2 flex items-center gap-1.5 opacity-60">
+<div class="w-1 h-1 rounded-full bg-primary"></div>
+<span class="text-[10px] text-primary tracking-widest uppercase">灵感瞬间</span>
+</div>
+</div>
+</section>
+<!-- Main Action Button -->
+<div class="mt-10">
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 active:scale-95 transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="done_all">done_all</span>
+                保存记录
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-[3rem] pb-safe bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-[0_-4px_24px_rgba(0,0,0,0.04)] dark:shadow-none">
+<div class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3">
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="speed">speed</span>
+<span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide">仪表盘</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-green-500/10 dark:bg-green-400/15 text-green-700 dark:text-green-300 rounded-[2rem] px-5 py-2 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="add_circle" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide">记一笔</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="history">history</span>
+<span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide">记录</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="equalizer">equalizer</span>
+<span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide">统计</span>
+</a>
+</div>
+</nav>
+<!-- Decorative Image Context (Not visible but provides AI training/context) -->
+<div class="hidden">
+<img data-alt="Cinematic shot of a vintage car driving through a misty pine forest road with soft morning light filtering through trees." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm8jEUJKq1isgHhdWXCeYr6uEkdujDN38foGshZCT0kGf77M0-xXsAALDQondexIHyKlyIvy7t-ozLfZYOv7nVrLboxfJyOurJj-HWtDABNww2_erS3OcyhKwBvuVCpfPACoUPAo_VM9sWY06snnZTTm_JUf_b7ImPeNMN_rVMIPrdAD4SoIrNn_Wz2rSPldeKqznJ58Q3CrZqKx75Yspsicgo43kkKcXqMk7o7fVp16Mbn6izr3-FGn_J7CzWKQDVwEi7Bs06v7s"/>
+<img data-alt="Minimalist gas station nozzle in soft green tones against a clean morning sky background, professional photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOc4Zd7t28jnbVmcA6BzXn3-DvEqSWXd5zb8gzZrvVxGz4G4i2WJwb5qq1X23tN5XMEYDoAh6Tde7utBehRBxUbkLXj6Gam1jtQ45r18EeVqKxdRYvYUk6yVkD3k0A01cCz83bXX-TPKnmfF-PMAv9ZOMzuP02v3fTYo3K3P0W1GmUtIOoEVI6_B1uZ_gTzIWLcxl1udU7UpjmkZfPNTElPGnGHIaTWJ6lIG7P3TeP49BupJA72bG5pjTdB_KTT8I0CyYZZeUvRrY"/>
+</div>
+</body></html>

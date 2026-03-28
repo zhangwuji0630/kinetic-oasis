@@ -1,154 +1,238 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Kinetic Oasis 鎵嬫満鐗堝姞娌规棩蹇楋紝鍙煡鐪嬨€佺瓫閫夈€佺紪杈戝拰鍒犻櫎鏈湴璁板綍銆?>
-  <meta name="theme-color" content="#4d6300">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Kinetic Oasis">
-  <title>Kinetic Oasis - 鍔犳补鏃ュ織</title>
-  <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="icon" href="./icons/icon-192.png" sizes="192x192" type="image/png">
-  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
-  <link rel="stylesheet" href="./styles.css">
-</head>
-<body data-page="logs" data-nav-group="logs">
-  <header class="topbar">
-    <a class="icon-button" href="./index.html" aria-label="杩斿洖浠〃鐩?>
-      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M15 18 9 12l6-6"></path>
-      </svg>
-    </a>
-    <div class="topbar-brand topbar-brand-centered">
-      <div class="brand-copy">
-        <p class="eyebrow">Fuel Records</p>
-        <h1 class="brand-title">鍔犳补鏃ュ織</h1>
-      </div>
-    </div>
-    <a class="icon-button icon-button-primary" href="./add.html" aria-label="娣诲姞璁板綍">
-      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 5v14"></path>
-        <path d="M5 12h14"></path>
-      </svg>
-    </a>
-  </header>
 
-  <div class="app-shell">
-    <main class="main-stack">
-      <p class="notice-banner" id="pageFlash" hidden></p>
-
-      <section class="hero-card hero-primary">
-        <div class="hero-layout">
-          <div>
-            <p class="hero-kicker">褰撳墠绛涢€夋敮鍑?/p>
-            <div class="hero-row">
-              <h2 class="hero-heading hero-heading-money" id="logsFilteredSpend">楼 0.00</h2>
-            </div>
-          </div>
-          <div class="hero-chip-row">
-            <span class="hero-chip">璁板綍鏁帮細<strong id="logsFilteredCount">0 鏉?/strong></span>
-            <span class="hero-chip">鎬绘补閲忥細<strong id="logsFilteredLiters">0.00 L</strong></span>
-          </div>
-          <p class="hero-copy" id="logsFilterSummary">褰撳墠灞曠ず 0 鏉¤褰曘€?/p>
-        </div>
-      </section>
-
-      <section class="panel soft">
-        <div class="section-head">
-          <div>
-            <p class="section-title">绛涢€夋潯浠?/p>
-            <h2>蹇€熷畾浣嶈褰?/h2>
-          </div>
-        </div>
-        <div class="filters-grid">
-          <label class="field">
-            <span class="field-label">鏈堜唤</span>
-            <div class="field-control">
-              <select class="field-select" id="logsMonthFilter"></select>
-            </div>
-          </label>
-          <label class="field">
-            <span class="field-label">鐕冩补绫诲瀷</span>
-            <div class="field-control">
-              <select class="field-select" id="logsFuelFilter"></select>
-            </div>
-          </label>
-          <label class="field">
-            <span class="field-label">娌圭珯</span>
-            <div class="field-control">
-              <select class="field-select" id="logsStationFilter"></select>
-            </div>
-          </label>
-          <label class="field">
-            <span class="field-label">鍏抽敭璇?/span>
-            <div class="field-control">
-              <input class="field-input" id="logsSearch" type="search" placeholder="鎼滅储娌圭珯銆佸娉ㄦ垨鏃ユ湡">
-            </div>
-          </label>
-        </div>
-      </section>
-
-      <section class="panel">
-        <div class="section-head">
-          <div>
-            <p class="section-title">璁板綍鍒楄〃</p>
-            <h2>鎸夋棩鏈熷€掑簭</h2>
-          </div>
-        </div>
-        <div class="record-list" id="logsList"></div>
-      </section>
-      <div class="spacer-bottom"></div>
-    </main>
-  </div>
-
-  <a class="fab" href="./add.html" aria-label="鏂板璁板綍">
-    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 5v14"></path>
-      <path d="M5 12h14"></path>
-    </svg>
-  </a>
-
-  <div class="bottom-nav-wrap">
-    <nav class="bottom-nav" aria-label="涓诲鑸?>
-      <a class="nav-item" href="./index.html" data-nav="dashboard">
-        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 12.5 12 5l8 7.5"></path>
-          <path d="M6.5 10.5V19h11v-8.5"></path>
-        </svg>
-        <span class="nav-label">浠〃鐩?/span>
-      </a>
-      <a class="nav-item" href="./logs.html" data-nav="logs">
-        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7 6h10"></path>
-          <path d="M7 12h10"></path>
-          <path d="M7 18h10"></path>
-          <path d="M4 6h.01"></path>
-          <path d="M4 12h.01"></path>
-          <path d="M4 18h.01"></path>
-        </svg>
-        <span class="nav-label">璁板綍</span>
-      </a>
-      <a class="nav-item" href="./stats.html" data-nav="stats">
-        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 18h16"></path>
-          <path d="M7 15V9"></path>
-          <path d="M12 15V6"></path>
-          <path d="M17 15v-3"></path>
-        </svg>
-        <span class="nav-label">瓒嬪娍</span>
-      </a>
-      <a class="nav-item" href="./add.html" data-nav="add">
-        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 5v14"></path>
-          <path d="M5 12h14"></path>
-        </svg>
-        <span class="nav-label">鏂板</span>
-      </a>
-    </nav>
-  </div>
-
-  <script src="./app-clean.js"></script>
-</body>
-</html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#9c413d",
+              "on-tertiary-fixed": "#410004",
+              "on-surface": "#191c1a",
+              "on-secondary-container": "#356e3c",
+              "on-error-container": "#93000a",
+              "background": "#f8faf6",
+              "error-container": "#ffdad6",
+              "on-primary-container": "#004d1a",
+              "on-secondary": "#ffffff",
+              "secondary-fixed-dim": "#98d599",
+              "on-primary": "#ffffff",
+              "outline": "#6d7b6b",
+              "on-tertiary-fixed-variant": "#7e2a27",
+              "primary-fixed-dim": "#53e16f",
+              "secondary-container": "#b0efb0",
+              "outline-variant": "#bccbb8",
+              "on-secondary-fixed-variant": "#175123",
+              "surface": "#f8faf6",
+              "error": "#ba1a1a",
+              "surface-dim": "#d8dbd7",
+              "inverse-primary": "#53e16f",
+              "on-primary-fixed": "#002107",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed": "#002107",
+              "on-background": "#191c1a",
+              "surface-bright": "#f8faf6",
+              "surface-container-highest": "#e1e3df",
+              "secondary-fixed": "#b3f2b3",
+              "on-tertiary-container": "#772523",
+              "tertiary-fixed": "#ffdad7",
+              "on-error": "#ffffff",
+              "surface-tint": "#006e28",
+              "inverse-surface": "#2e312f",
+              "surface-container": "#eceeea",
+              "primary": "#006e28",
+              "secondary": "#316a38",
+              "primary-fixed": "#72fe88",
+              "tertiary-container": "#ff8e86",
+              "inverse-on-surface": "#eff1ed",
+              "surface-variant": "#e1e3df",
+              "on-surface-variant": "#3d4a3c",
+              "on-primary-fixed-variant": "#00531c",
+              "tertiary-fixed-dim": "#ffb3ad",
+              "primary-container": "#34c759",
+              "surface-container-high": "#e7e9e5",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f2f4f0"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "Noto Sans SC"],
+              "body": ["Manrope", "Noto Sans SC"],
+              "label": ["Manrope", "Noto Sans SC"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', 'Noto Sans SC', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .sage-gradient {
+            background: linear-gradient(150deg, #006e28 0%, #34c759 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<header class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-xl">
+<div class="flex items-center justify-between px-6 py-4 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-green-700 dark:text-green-400" data-icon="local_gas_station">local_gas_station</span>
+<h1 class="text-2xl font-bold tracking-tighter text-green-800 dark:text-green-200">加个油吧</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-stone-200/50 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-stone-500" data-icon="search">search</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-screen-md mx-auto">
+<section class="mb-10">
+<div class="relative overflow-hidden rounded-xl p-8 sage-gradient shadow-xl shadow-primary/10">
+<div class="relative z-10 flex flex-col gap-1">
+<span class="text-white/80 text-sm font-medium tracking-wider">本月累计花费 (6月)</span>
+<div class="flex items-baseline gap-1 mt-2">
+<span class="text-white/70 text-2xl font-semibold">¥</span>
+<span class="text-white text-6xl font-extrabold tracking-tight">1,248.50</span>
+</div>
+<div class="mt-6 flex gap-4">
+<div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-2 border border-white/10">
+<span class="text-white/60 text-[10px] block uppercase tracking-widest">累计油量</span>
+<span class="text-white font-bold">156.4 L</span>
+</div>
+<div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-2 border border-white/10">
+<span class="text-white/60 text-[10px] block uppercase tracking-widest">加油次数</span>
+<span class="text-white font-bold">4 次</span>
+</div>
+</div>
+</div>
+<div class="absolute -right-12 -bottom-12 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+</div>
+</section>
+<section class="mb-8">
+<div class="flex items-center justify-between mb-6 px-2">
+<h2 class="text-xl font-bold text-on-surface">历史记录</h2>
+<button class="text-primary text-sm font-semibold flex items-center gap-1">
+                    筛选 <span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+                    </button>
+</div>
+<div class="space-y-4">
+<div class="group bg-surface-container-lowest rounded-lg p-5 flex items-center justify-between transition-all duration-300 hover:shadow-lg hover:shadow-stone-200/50">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-on-surface font-bold text-lg tracking-tight">¥ 350.00</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded-full">95#</span>
+</div>
+<span class="text-on-surface-variant text-xs font-medium">2024年6月18日 · 14:20</span>
+</div>
+</div>
+<div class="text-right">
+<span class="block text-on-surface font-bold">43.85 L</span>
+<span class="text-on-surface-variant text-[11px] tracking-tight">¥ 7.98/L</span>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-lg p-5 flex items-center justify-between transition-all duration-300 hover:shadow-lg hover:shadow-stone-200/50">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-on-surface font-bold text-lg tracking-tight">¥ 298.50</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded-full">95#</span>
+</div>
+<span class="text-on-surface-variant text-xs font-medium">2024年6月12日 · 09:15</span>
+</div>
+</div>
+<div class="text-right">
+<span class="block text-on-surface font-bold">37.41 L</span>
+<span class="text-on-surface-variant text-[11px] tracking-tight">¥ 7.98/L</span>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-lg p-5 flex items-center justify-between transition-all duration-300 hover:shadow-lg hover:shadow-stone-200/50">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-on-surface font-bold text-lg tracking-tight">¥ 420.00</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded-full">95#</span>
+</div>
+<span class="text-on-surface-variant text-xs font-medium">2024年6月05日 · 18:45</span>
+</div>
+</div>
+<div class="text-right">
+<span class="block text-on-surface font-bold text-lg">52.37 L</span>
+<span class="text-on-surface-variant text-[11px] tracking-tight">¥ 8.02/L</span>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-lg p-5 flex items-center justify-between transition-all duration-300 hover:shadow-lg hover:shadow-stone-200/50">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-on-surface font-bold text-lg tracking-tight">¥ 180.00</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded-full">95#</span>
+</div>
+<span class="text-on-surface-variant text-xs font-medium">2024年6月01日 · 08:30</span>
+</div>
+</div>
+<div class="text-right">
+<span class="block text-on-surface font-bold">22.78 L</span>
+<span class="text-on-surface-variant text-[11px] tracking-tight">¥ 7.90/L</span>
+</div>
+</div>
+</div>
+</section>
+<div class="mt-8 flex flex-col items-center gap-4 opacity-50">
+<div class="h-[1px] w-12 bg-outline-variant"></div>
+<p class="text-[11px] font-medium text-stone-400 tracking-widest uppercase">已加载全部历史记录</p>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-xl rounded-t-[3rem] pb-safe shadow-[0_-4px_24px_rgba(0,0,0,0.04)] dark:shadow-none z-50">
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 dark:hover:text-green-300 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="speed">speed</span>
+<span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide">仪表盘</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 dark:hover:text-green-300 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="add_circle">add_circle</span>
+<span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide">记一笔</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-green-500/10 dark:bg-green-400/15 text-green-700 dark:text-green-300 rounded-[2rem] px-5 py-2 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="history" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide">记录</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 dark:hover:text-green-300 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="equalizer">equalizer</span>
+<span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide">统计</span>
+</a>
+</nav>
+</body></html>
