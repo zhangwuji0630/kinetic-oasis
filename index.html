@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Kinetic Oasis 加油记录应用，可在手机主屏幕安装并离线打开最近一次缓存页面。">
+  <meta name="theme-color" content="#4d6300">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Kinetic Oasis">
+  <title>Kinetic Oasis - 添加加油记录</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <button class="icon-button" type="button" aria-label="关闭页面" data-action="close-page">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6.4 5 5 6.4 10.6 12 5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6L19 6.4 17.6 5 12 10.6 6.4 5Z"></path>
+        </svg>
+      </button>
+      <div class="brand-lockup">
+        <p class="brand-eyebrow">Fuel Journal</p>
+        <h1 class="brand-title">Kinetic Oasis</h1>
+      </div>
+      <div class="avatar" aria-hidden="true">KO</div>
+    </header>
+
+    <main class="content">
+      <section class="hero">
+        <div>
+          <p class="hero-kicker">Drive Log</p>
+          <h2>添加加油记录</h2>
+          <p class="hero-copy">记录每一次动力补充，并把最近一次输入保存到当前浏览器。</p>
+        </div>
+        <div class="hero-orbit" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </section>
+
+      <section class="summary-card">
+        <div class="summary-copy">
+          <p class="summary-label">总支出</p>
+          <p class="summary-hint">根据加油量与单价实时计算</p>
+        </div>
+        <div class="summary-amount">
+          <span class="amount-number" id="totalAmount">0.00</span>
+          <span class="amount-currency">CNY</span>
+        </div>
+      </section>
+
+      <form class="record-form" id="fuelForm">
+        <section class="panel">
+          <div class="field-group">
+            <label class="field-label" for="date">交易日期</label>
+            <div class="field-shell">
+              <span class="field-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Zm0-4H6v2h12V6Z"></path>
+                </svg>
+              </span>
+              <input id="date" name="date" type="date" required>
+            </div>
+          </div>
+
+          <div class="field-grid">
+            <div class="field-group">
+              <label class="field-label" for="liters">加油量 (升)</label>
+              <div class="field-shell">
+                <input id="liters" name="liters" type="number" min="0" step="0.01" placeholder="0.00" inputmode="decimal" required>
+              </div>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="price">单价 (¥/升)</label>
+              <div class="field-shell">
+                <input id="price" name="price" type="number" min="0" step="0.01" placeholder="0.00" inputmode="decimal" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="odometer">当前里程 (公里)</label>
+            <div class="field-shell">
+              <span class="field-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 4A10 10 0 1 0 22 14 10 10 0 0 0 12 4Zm0 2a8 8 0 0 1 6.93 12H5.07A8 8 0 0 1 12 6Zm0 4.25a1.75 1.75 0 0 0-1.7 2.14l-3.18 3.18 1.4 1.4 3.18-3.18A1.75 1.75 0 1 0 12 10.25Z"></path>
+                </svg>
+              </span>
+              <input id="odometer" name="odometer" type="number" min="0" step="1" placeholder="请输入当前里程" inputmode="numeric" required>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <p class="field-label">燃油类型</p>
+            <div class="chip-row" id="fuelTypeGroup" role="radiogroup" aria-label="燃油类型">
+              <button class="fuel-chip is-active" type="button" data-fuel-type="92# 汽油" role="radio" aria-checked="true">92# 汽油</button>
+              <button class="fuel-chip" type="button" data-fuel-type="95# 汽油" role="radio" aria-checked="false">95# 汽油</button>
+              <button class="fuel-chip" type="button" data-fuel-type="98# 汽油" role="radio" aria-checked="false">98# 汽油</button>
+              <button class="fuel-chip" type="button" data-fuel-type="柴油" role="radio" aria-checked="false">柴油</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="station">加油站名称</label>
+            <div class="field-shell">
+              <input id="station" name="station" type="text" maxlength="40" placeholder="例如：中国石化虹桥站">
+            </div>
+          </div>
+        </section>
+
+        <section class="panel latest-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Local Snapshot</p>
+              <h3>最近一次保存</h3>
+            </div>
+            <p class="panel-badge" id="saveState">未保存</p>
+          </div>
+          <div class="latest-card" id="latestRecord">
+            <p class="latest-empty">还没有本地记录，填写后点击“确认并保存”。</p>
+          </div>
+          <p class="form-message" id="formMessage" aria-live="polite"></p>
+        </section>
+
+        <div class="action-row">
+          <button class="primary-action" type="submit">
+            <span>确认并保存</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M13 5.25 11.58 6.66 15.92 11H4v2h11.92l-4.34 4.34L13 18.75 19.75 12 13 5.25Z"></path>
+            </svg>
+          </button>
+          <button class="ghost-action" id="clearButton" type="button">清空本地记录</button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
