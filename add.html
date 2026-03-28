@@ -3,6 +3,13 @@
 <html class="light" lang="zh-CN"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#34c759" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="加个油吧" name="apple-mobile-web-app-title"/>
+<link href="./manifest.webmanifest" rel="manifest"/>
+<link href="./icons/icon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="./icons/apple-touch-icon.png" rel="apple-touch-icon"/>
 <title>记一笔 - 加个油吧</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
@@ -195,24 +202,25 @@
 <!-- BottomNavBar -->
 <nav class="fixed bottom-0 w-full z-50 rounded-t-[3rem] pb-safe bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-[0_-4px_24px_rgba(0,0,0,0.04)] dark:shadow-none">
 <div class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3">
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300 ease-out" href="#">
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300 ease-out" href="./index.html">
 <span class="material-symbols-outlined mb-1" data-icon="speed">speed</span>
 <span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide">仪表盘</span>
 </a>
-<a class="flex flex-col items-center justify-center bg-green-500/10 dark:bg-green-400/15 text-green-700 dark:text-green-300 rounded-[2rem] px-5 py-2 active:scale-90 duration-300 ease-out" href="#">
+<a class="flex flex-col items-center justify-center bg-green-500/10 dark:bg-green-400/15 text-green-700 dark:text-green-300 rounded-[2rem] px-5 py-2 active:scale-90 duration-300 ease-out" href="./add.html">
 <span class="material-symbols-outlined mb-1" data-icon="add_circle" style="font-variation-settings: 'FILL' 1;">add_circle</span>
 <span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide">记一笔</span>
 </a>
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300 ease-out" href="#">
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300 ease-out" href="./logs.html">
 <span class="material-symbols-outlined mb-1" data-icon="history">history</span>
 <span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide">记录</span>
 </a>
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300 ease-out" href="#">
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300 ease-out" href="./stats.html">
 <span class="material-symbols-outlined mb-1" data-icon="equalizer">equalizer</span>
 <span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide">统计</span>
 </a>
 </div>
 </nav>
+<script defer src="./pwa.js"></script>
 <!-- Decorative Image Context (Not visible but provides AI training/context) -->
 <div class="hidden">
 <img data-alt="Cinematic shot of a vintage car driving through a misty pine forest road with soft morning light filtering through trees." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm8jEUJKq1isgHhdWXCeYr6uEkdujDN38foGshZCT0kGf77M0-xXsAALDQondexIHyKlyIvy7t-ozLfZYOv7nVrLboxfJyOurJj-HWtDABNww2_erS3OcyhKwBvuVCpfPACoUPAo_VM9sWY06snnZTTm_JUf_b7ImPeNMN_rVMIPrdAD4SoIrNn_Wz2rSPldeKqznJ58Q3CrZqKx75Yspsicgo43kkKcXqMk7o7fVp16Mbn6izr3-FGn_J7CzWKQDVwEi7Bs06v7s"/>

@@ -3,6 +3,14 @@
 <html class="light" lang="zh-CN"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>加个油吧</title>
+<meta content="#34c759" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="加个油吧" name="apple-mobile-web-app-title"/>
+<link href="./manifest.webmanifest" rel="manifest"/>
+<link href="./icons/icon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="./icons/apple-touch-icon.png" rel="apple-touch-icon"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -209,9 +217,9 @@
 <section class="space-y-4">
 <div class="flex justify-between items-center">
 <h3 class="text-title-md font-semibold text-on-surface">最近记录</h3>
-<button class="text-primary text-sm font-bold flex items-center gap-1">
+<a class="text-primary text-sm font-bold flex items-center gap-1" href="./logs.html">
                     全部记录 <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
-</button>
+</a>
 </div>
 <div class="space-y-3">
 <!-- Record Item -->
@@ -252,26 +260,27 @@
 <!-- Bottom Navigation Bar -->
 <nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-xl rounded-t-[3rem] pb-safe shadow-[0_-4px_24px_rgba(0,0,0,0.04)] dark:shadow-none z-50">
 <!-- Active Nav Item -->
-<a class="flex flex-col items-center justify-center bg-green-500/10 dark:bg-green-400/15 text-green-700 dark:text-green-300 rounded-[2rem] px-5 py-2 active:scale-90 duration-300 ease-out" href="#">
+<a class="flex flex-col items-center justify-center bg-green-500/10 dark:bg-green-400/15 text-green-700 dark:text-green-300 rounded-[2rem] px-5 py-2 active:scale-90 duration-300 ease-out" href="./index.html">
 <span class="material-symbols-outlined mb-0.5" data-icon="speed" style="font-variation-settings: 'FILL' 1;">speed</span>
 <span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide">仪表盘</span>
 </a>
 <!-- Inactive Nav Items -->
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 dark:hover:text-green-300 transition-all active:scale-90 duration-300 ease-out" href="#">
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 dark:hover:text-green-300 transition-all active:scale-90 duration-300 ease-out" href="./add.html">
 <span class="material-symbols-outlined mb-0.5" data-icon="add_circle">add_circle</span>
 <span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide">记一笔</span>
 </a>
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 dark:hover:text-green-300 transition-all active:scale-90 duration-300 ease-out" href="#">
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 dark:hover:text-green-300 transition-all active:scale-90 duration-300 ease-out" href="./logs.html">
 <span class="material-symbols-outlined mb-0.5" data-icon="history">history</span>
 <span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide">记录</span>
 </a>
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 dark:hover:text-green-300 transition-all active:scale-90 duration-300 ease-out" href="#">
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 dark:hover:text-green-300 transition-all active:scale-90 duration-300 ease-out" href="./stats.html">
 <span class="material-symbols-outlined mb-0.5" data-icon="equalizer">equalizer</span>
 <span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide">统计</span>
 </a>
 </nav>
 <!-- Floating Action Button (FAB) -->
-<button class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center active:scale-95 duration-200 transition-transform z-40">
+<a aria-label="添加记录" class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center active:scale-95 duration-200 transition-transform z-40" href="./add.html">
 <span class="material-symbols-outlined text-2xl" data-icon="add" style="font-variation-settings: 'wght' 600;">add</span>
-</button>
+</a>
+<script defer src="./pwa.js"></script>
 </body></html>

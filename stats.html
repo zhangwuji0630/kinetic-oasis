@@ -3,6 +3,14 @@
 <html class="light" lang="zh-CN"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>统计趋势 - 加个油吧</title>
+<meta content="#34c759" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="加个油吧" name="apple-mobile-web-app-title"/>
+<link href="./manifest.webmanifest" rel="manifest"/>
+<link href="./icons/icon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="./icons/apple-touch-icon.png" rel="apple-touch-icon"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -308,21 +316,22 @@
 </main>
 <!-- BottomNavBar -->
 <nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-xl rounded-t-[3rem] pb-safe z-50 shadow-[0_-4px_24px_rgba(0,0,0,0.04)] dark:shadow-none">
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300" href="#">
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300" href="./index.html">
 <span class="material-symbols-outlined text-2xl" data-icon="speed">speed</span>
 <span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide mt-1">仪表盘</span>
 </a>
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300" href="#">
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300" href="./add.html">
 <span class="material-symbols-outlined text-2xl" data-icon="add_circle">add_circle</span>
 <span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide mt-1">记一笔</span>
 </a>
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300" href="#">
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-green-600 transition-all active:scale-90 duration-300" href="./logs.html">
 <span class="material-symbols-outlined text-2xl" data-icon="history">history</span>
 <span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide mt-1">记录</span>
 </a>
-<a class="flex flex-col items-center justify-center bg-green-500/10 dark:bg-green-400/15 text-green-700 dark:text-green-300 rounded-[2rem] px-5 py-2 active:scale-90 duration-300" href="#">
+<a class="flex flex-col items-center justify-center bg-green-500/10 dark:bg-green-400/15 text-green-700 dark:text-green-300 rounded-[2rem] px-5 py-2 active:scale-90 duration-300" href="./stats.html">
 <span class="material-symbols-outlined text-2xl" data-icon="equalizer" style="font-variation-settings: 'FILL' 1;">equalizer</span>
 <span class="font-['PingFang_SC'] font-medium text-[11px] tracking-wide mt-1">统计</span>
 </a>
 </nav>
+<script defer src="./pwa.js"></script>
 </body></html>

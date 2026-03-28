@@ -1,15 +1,12 @@
-const CACHE_NAME = "kinetic-oasis-v5";
+const CACHE_NAME = "kinetic-oasis-v6";
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./logs.html",
   "./add.html",
+  "./logs.html",
   "./stats.html",
-  "./stations.html",
-  "./settings.html",
-  "./styles.css",
-  "./app-clean.js",
   "./manifest.webmanifest",
+  "./pwa.js",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/apple-touch-icon.png"
@@ -36,42 +33,31 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  const requestUrl = new URL(event.request.url);
-  if (requestUrl.origin !== self.location.origin) {
-    return;
-  }
-
-  if (event.request.mode === "navigate") {
-    event.respondWith(
-      fetch(event.request)
-        .then((response) => {
-          const responseClone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
-          return response;
-        })
-        .catch(async () => {
-          const cachedPage = await caches.match(event.request);
-          return cachedPage || caches.match("./index.html");
-        })
-    );
-    return;
-  }
-
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
+    caches.match(event.request).then(async (cachedResponse) => {
       if (cachedResponse) {
         return cachedResponse;
       }
 
-      return fetch(event.request).then((response) => {
-        if (!response || response.status !== 200 || response.type !== "basic") {
-          return response;
+      try {
+        const response = await fetch(event.request);
+
+        if (
+          response &&
+          (response.ok || response.type === "opaque" || response.type === "cors" || response.type === "basic")
+        ) {
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
         }
 
-        const responseClone = response.clone();
-        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
         return response;
-      });
+      } catch (error) {
+        if (event.request.mode === "navigate") {
+          return caches.match("./index.html");
+        }
+
+        throw error;
+      }
     })
   );
 });

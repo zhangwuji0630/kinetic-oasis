@@ -1,16 +1,16 @@
 {
   "id": "./index.html",
-  "name": "Kinetic Oasis 燃油记录",
-  "short_name": "Kinetic Oasis",
-  "description": "本地燃油记录 PWA，支持仪表盘、日志、统计趋势、油站聚合和离线访问。",
+  "name": "\u52a0\u4e2a\u6cb9\u5427",
+  "short_name": "\u52a0\u4e2a\u6cb9\u5427",
+  "description": "Mobile fuel log PWA.",
   "lang": "zh-CN",
   "dir": "ltr",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#eff7df",
-  "theme_color": "#4d6300",
+  "background_color": "#f8faf6",
+  "theme_color": "#34c759",
   "categories": [
     "productivity",
     "utilities",
@@ -18,9 +18,9 @@
   ],
   "shortcuts": [
     {
-      "name": "添加记录",
-      "short_name": "添加",
-      "description": "快速进入添加加油记录页面",
+      "name": "\u8bb0\u4e00\u7b14",
+      "short_name": "\u8bb0\u4e00\u7b14",
+      "description": "Add a fuel log.",
       "url": "./add.html",
       "icons": [
         {
@@ -31,9 +31,22 @@
       ]
     },
     {
-      "name": "统计趋势",
-      "short_name": "趋势",
-      "description": "查看支出和油耗趋势",
+      "name": "\u8bb0\u5f55",
+      "short_name": "\u8bb0\u5f55",
+      "description": "View fuel logs.",
+      "url": "./logs.html",
+      "icons": [
+        {
+          "src": "./icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "\u7edf\u8ba1",
+      "short_name": "\u7edf\u8ba1",
+      "description": "View spending stats.",
       "url": "./stats.html",
       "icons": [
         {
@@ -56,6 +69,11 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
     }
   ]
 }
