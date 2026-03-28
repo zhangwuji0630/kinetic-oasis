@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Kinetic Oasis 添加或编辑加油记录，自动计算总支出并同步到本地。">
+  <meta name="theme-color" content="#4d6300">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Kinetic Oasis">
+  <title>Kinetic Oasis - 添加记录</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-page="add" data-nav-group="logs">
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="icon-button" href="./logs.html" aria-label="返回记录列表">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15 18 9 12l6-6"></path>
+        </svg>
+      </a>
+      <div class="topbar-copy">
+        <p class="eyebrow">Fuel Entry</p>
+        <h1 class="page-title" id="addPageHeading">添加加油记录</h1>
+        <p class="page-subtitle" id="addPageHint">录入每次加油的核心数据，其他页面会自动同步。</p>
+      </div>
+      <a class="avatar-chip" href="./settings.html" aria-label="打开设置">KO</a>
+    </header>
+
+    <main class="main-stack">
+      <section class="hero-card hero-primary">
+        <div class="hero-layout hero-layout-split">
+          <div>
+            <p class="hero-kicker">总支出</p>
+            <div class="hero-row">
+              <h2 class="hero-heading" id="addTotalAmount">0.00</h2>
+              <span class="hero-unit">CNY</span>
+            </div>
+            <p class="hero-copy">金额会根据升数与单价实时计算，保存后立即同步到日志与统计页面。</p>
+          </div>
+          <div class="hero-side-stack">
+            <span class="hero-chip hero-chip-strong">保存前会自动检查里程顺序</span>
+            <div class="hero-mini-panel">
+              <p class="mini-label">油耗统计规则</p>
+              <strong>满油段优先</strong>
+              <span>勾选“本次已加满”后，这条记录才能参与更准确的油耗统计。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="summary-strip">
+        <div class="summary-grid summary-grid-two">
+          <div class="summary-item">
+            <span class="mini-label">里程规则</span>
+            <strong class="summary-value">不能打乱前后顺序</strong>
+            <span class="metric-note">新增和编辑都会校验。</span>
+          </div>
+          <div class="summary-item">
+            <span class="mini-label">统计口径</span>
+            <strong class="summary-value">完整满油区间</strong>
+            <span class="metric-note">半箱补油不会直接算入油耗。</span>
+          </div>
+        </div>
+      </section>
+
+      <form class="form-stack" id="fuelForm">
+        <section class="panel soft">
+          <div class="section-head">
+            <div>
+              <p class="section-title">记录内容</p>
+              <h2>填写基础信息</h2>
+            </div>
+          </div>
+
+          <div class="field-grid entry-grid">
+            <label class="field">
+              <span class="field-label">交易日期</span>
+              <div class="field-control">
+                <input class="field-input" id="recordDate" type="date" required>
+              </div>
+            </label>
+            <label class="field">
+              <span class="field-label">当前里程 (km)</span>
+              <div class="field-control">
+                <input class="field-input" id="recordOdometer" type="number" min="0" step="1" placeholder="请输入当前里程" required>
+              </div>
+            </label>
+            <label class="field">
+              <span class="field-label">加油量 (L)</span>
+              <div class="field-control">
+                <input class="field-input" id="recordLiters" type="number" min="0" step="0.01" placeholder="0.00" required>
+              </div>
+            </label>
+            <label class="field">
+              <span class="field-label">单价 (¥/L)</span>
+              <div class="field-control">
+                <input class="field-input" id="recordUnitPrice" type="number" min="0" step="0.01" placeholder="0.00" required>
+              </div>
+            </label>
+          </div>
+
+          <div class="field">
+            <span class="field-label">燃油类型</span>
+            <div class="chip-group" id="fuelTypeGroup">
+              <button class="chip-button" type="button" data-fuel-type="92# 汽油">92# 汽油</button>
+              <button class="chip-button" type="button" data-fuel-type="95# 汽油">95# 汽油</button>
+              <button class="chip-button" type="button" data-fuel-type="98# 汽油">98# 汽油</button>
+              <button class="chip-button" type="button" data-fuel-type="柴油">柴油</button>
+            </div>
+          </div>
+
+          <label class="field">
+            <span class="field-label">油站名称</span>
+            <div class="field-control">
+              <input class="field-input" id="recordStation" type="text" maxlength="48" placeholder="例如：中国石化 科技园站">
+            </div>
+          </label>
+
+          <label class="field">
+            <span class="field-label">备注</span>
+            <div class="field-control input-block">
+              <textarea class="field-textarea" id="recordNote" placeholder="可记录出差、长途、优惠活动等备注"></textarea>
+            </div>
+          </label>
+
+          <div class="toggle-row">
+            <div class="toggle-copy">
+              <strong>本次已加满</strong>
+              <span>建议满油时勾选，方便统计真实油耗。</span>
+            </div>
+            <label class="toggle-switch">
+              <input id="recordFullTank" type="checkbox">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </section>
+
+        <p class="form-message" id="addFormMessage" hidden></p>
+
+        <div class="button-row">
+          <button class="button" type="submit">确认并保存</button>
+          <a class="button-secondary" href="./logs.html">取消并返回</a>
+          <div id="deleteRecordWrap" hidden>
+            <button class="button button-danger" id="deleteRecordButton" type="button">删除当前记录</button>
+          </div>
+        </div>
+      </form>
+      <div class="spacer-bottom"></div>
+    </main>
+  </div>
+
+  <div class="bottom-nav-wrap">
+    <nav class="bottom-nav" aria-label="主导航">
+      <a class="nav-item" href="./index.html" data-nav="dashboard">
+        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 12.5 12 5l8 7.5"></path>
+          <path d="M6.5 10.5V19h11v-8.5"></path>
+        </svg>
+        <span class="nav-label">仪表盘</span>
+      </a>
+      <a class="nav-item" href="./logs.html" data-nav="logs">
+        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 6h10"></path>
+          <path d="M7 12h10"></path>
+          <path d="M7 18h10"></path>
+          <path d="M4 6h.01"></path>
+          <path d="M4 12h.01"></path>
+          <path d="M4 18h.01"></path>
+        </svg>
+        <span class="nav-label">记录</span>
+      </a>
+      <a class="nav-item" href="./stations.html" data-nav="stations">
+        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 20V6.5A2.5 2.5 0 0 1 9.5 4h4A2.5 2.5 0 0 1 16 6.5V20"></path>
+          <path d="M7 11h9"></path>
+          <path d="M16 8h2l1 2v5"></path>
+        </svg>
+        <span class="nav-label">油站</span>
+      </a>
+      <a class="nav-item" href="./settings.html" data-nav="settings">
+        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 8.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 1 0 12 8.5z"></path>
+          <path d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a1 1 0 0 1 0 1.4l-1.2 1.2a1 1 0 0 1-1.4 0l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V20a1 1 0 0 1-1 1h-1.8a1 1 0 0 1-1-1v-.1a1 1 0 0 0-.6-.9 1 1 0 0 0-1.1.2l-.1.1a1 1 0 0 1-1.4 0l-1.2-1.2a1 1 0 0 1 0-1.4l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H4a1 1 0 0 1-1-1v-1.8a1 1 0 0 1 1-1h.1a1 1 0 0 0 .9-.6 1 1 0 0 0-.2-1.1l-.1-.1a1 1 0 0 1 0-1.4l1.2-1.2a1 1 0 0 1 1.4 0l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V4a1 1 0 0 1 1-1h1.8a1 1 0 0 1 1 1v.1a1 1 0 0 0 .6.9 1 1 0 0 0 1.1-.2l.1-.1a1 1 0 0 1 1.4 0l1.2 1.2a1 1 0 0 1 0 1.4l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6H20a1 1 0 0 1 1 1v1.8a1 1 0 0 1-1 1h-.1a1 1 0 0 0-.9.6z"></path>
+        </svg>
+        <span class="nav-label">设置</span>
+      </a>
+    </nav>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

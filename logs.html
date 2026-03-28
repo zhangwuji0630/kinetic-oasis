@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Kinetic Oasis 燃油日志，可筛选、编辑和删除本地加油记录。">
+  <meta name="theme-color" content="#4d6300">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Kinetic Oasis">
+  <title>Kinetic Oasis - 加油日志</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-page="logs" data-nav-group="logs">
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="icon-button" href="./index.html" aria-label="返回仪表盘">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15 18 9 12l6-6"></path>
+        </svg>
+      </a>
+      <div class="topbar-copy">
+        <p class="eyebrow">Fuel Log</p>
+        <h1 class="page-title">加油日志</h1>
+        <p class="page-subtitle">筛选、编辑和清理所有本地记录。</p>
+      </div>
+      <a class="icon-button" href="./add.html" aria-label="新增记录">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 5v14"></path>
+          <path d="M5 12h14"></path>
+        </svg>
+      </a>
+    </header>
+
+    <main class="main-stack">
+      <p class="notice-banner" id="pageFlash" hidden></p>
+
+      <section class="panel highlight">
+        <div class="section-head">
+          <div>
+            <p class="section-title">筛选条件</p>
+            <h2>快速定位记录</h2>
+          </div>
+        </div>
+        <div class="filters-grid">
+          <label class="field">
+            <span class="field-label">月份</span>
+            <div class="field-control">
+              <select class="field-select" id="logsMonthFilter"></select>
+            </div>
+          </label>
+          <label class="field">
+            <span class="field-label">燃油类型</span>
+            <div class="field-control">
+              <select class="field-select" id="logsFuelFilter"></select>
+            </div>
+          </label>
+          <label class="field">
+            <span class="field-label">油站</span>
+            <div class="field-control">
+              <select class="field-select" id="logsStationFilter"></select>
+            </div>
+          </label>
+          <label class="field">
+            <span class="field-label">关键词</span>
+            <div class="field-control">
+              <input class="field-input" id="logsSearch" type="search" placeholder="搜索油站、备注或油品">
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <section class="summary-strip">
+        <div class="summary-grid">
+          <div class="summary-item">
+            <span class="mini-label">筛选支出</span>
+            <strong class="summary-value" id="logsFilteredSpend">¥ 0.00</strong>
+          </div>
+          <div class="summary-item">
+            <span class="mini-label">记录数</span>
+            <strong class="summary-value" id="logsFilteredCount">0 条</strong>
+          </div>
+          <div class="summary-item">
+            <span class="mini-label">总油量</span>
+            <strong class="summary-value" id="logsFilteredLiters">0.00 L</strong>
+          </div>
+        </div>
+        <p class="muted" id="logsFilterSummary">当前展示 0 条记录。</p>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="section-title">记录列表</p>
+            <h2>按日期倒序</h2>
+          </div>
+        </div>
+        <div class="record-list" id="logsList"></div>
+      </section>
+      <div class="spacer-bottom"></div>
+    </main>
+  </div>
+
+  <a class="fab" href="./add.html" aria-label="新增加油记录">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 5v14"></path>
+      <path d="M5 12h14"></path>
+    </svg>
+  </a>
+
+  <div class="bottom-nav-wrap">
+    <nav class="bottom-nav" aria-label="主导航">
+      <a class="nav-item" href="./index.html" data-nav="dashboard">
+        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 12.5 12 5l8 7.5"></path>
+          <path d="M6.5 10.5V19h11v-8.5"></path>
+        </svg>
+        <span class="nav-label">仪表盘</span>
+      </a>
+      <a class="nav-item" href="./logs.html" data-nav="logs">
+        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 6h10"></path>
+          <path d="M7 12h10"></path>
+          <path d="M7 18h10"></path>
+          <path d="M4 6h.01"></path>
+          <path d="M4 12h.01"></path>
+          <path d="M4 18h.01"></path>
+        </svg>
+        <span class="nav-label">记录</span>
+      </a>
+      <a class="nav-item" href="./stations.html" data-nav="stations">
+        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 20V6.5A2.5 2.5 0 0 1 9.5 4h4A2.5 2.5 0 0 1 16 6.5V20"></path>
+          <path d="M7 11h9"></path>
+          <path d="M16 8h2l1 2v5"></path>
+        </svg>
+        <span class="nav-label">油站</span>
+      </a>
+      <a class="nav-item" href="./settings.html" data-nav="settings">
+        <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 8.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 1 0 12 8.5z"></path>
+          <path d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a1 1 0 0 1 0 1.4l-1.2 1.2a1 1 0 0 1-1.4 0l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V20a1 1 0 0 1-1 1h-1.8a1 1 0 0 1-1-1v-.1a1 1 0 0 0-.6-.9 1 1 0 0 0-1.1.2l-.1.1a1 1 0 0 1-1.4 0l-1.2-1.2a1 1 0 0 1 0-1.4l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H4a1 1 0 0 1-1-1v-1.8a1 1 0 0 1 1-1h.1a1 1 0 0 0 .9-.6 1 1 0 0 0-.2-1.1l-.1-.1a1 1 0 0 1 0-1.4l1.2-1.2a1 1 0 0 1 1.4 0l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V4a1 1 0 0 1 1-1h1.8a1 1 0 0 1 1 1v.1a1 1 0 0 0 .6.9 1 1 0 0 0 1.1-.2l.1-.1a1 1 0 0 1 1.4 0l1.2 1.2a1 1 0 0 1 0 1.4l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6H20a1 1 0 0 1 1 1v1.8a1 1 0 0 1-1 1h-.1a1 1 0 0 0-.9.6z"></path>
+        </svg>
+        <span class="nav-label">设置</span>
+      </a>
+    </nav>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

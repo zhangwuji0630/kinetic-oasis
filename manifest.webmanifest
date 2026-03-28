@@ -1,20 +1,48 @@
 {
-  "id": "./",
-  "name": "Kinetic Oasis 加油记录",
+  "id": "./index.html",
+  "name": "Kinetic Oasis 燃油记录",
   "short_name": "Kinetic Oasis",
-  "description": "记录每次加油信息，支持主屏幕安装与离线打开。",
+  "description": "本地燃油记录 PWA，支持仪表盘、日志、统计趋势、油站聚合和离线访问。",
   "lang": "zh-CN",
   "dir": "ltr",
-  "start_url": "./",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#eef7de",
+  "background_color": "#eff7df",
   "theme_color": "#4d6300",
   "categories": [
     "productivity",
     "utilities",
     "lifestyle"
+  ],
+  "shortcuts": [
+    {
+      "name": "添加记录",
+      "short_name": "添加",
+      "description": "快速进入添加加油记录页面",
+      "url": "./add.html",
+      "icons": [
+        {
+          "src": "./icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "统计趋势",
+      "short_name": "趋势",
+      "description": "查看支出和油耗趋势",
+      "url": "./stats.html",
+      "icons": [
+        {
+          "src": "./icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
   ],
   "icons": [
     {
