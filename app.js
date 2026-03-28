@@ -648,7 +648,6 @@ function renderEmptyState(title, copy) {
   return `
     <div class="empty-state">
       <p class="empty-title">${escapeHtml(title)}</p>
-      <p class="empty-copy">${escapeHtml(copy)}</p>
       <div class="inline-actions">
         <a class="button" href="./add.html">新增记录</a>
         <button class="button-secondary" type="button" data-action="load-sample">载入示例数据</button>
@@ -769,6 +768,8 @@ function setupInstallPrompt() {
     deferredInstallPrompt = null;
     refreshInstallPanel("应用已经安装到主屏幕。");
   });
+
+  refreshInstallPanel();
 }
 
 function refreshInstallPanel(customMessage = "") {
@@ -888,7 +889,7 @@ function initDashboardPage() {
             <p class="section-title">油站聚焦</p>
             <h3>${escapeHtml(data.mostVisitedStation.name)}</h3>
           </div>
-          <a class="text-link" href="./stations.html">查看油站</a>
+          <a class="text-link" href="./logs.html">查看记录</a>
         </div>
         <div class="summary-grid">
           <div class="summary-item">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Kinetic Oasis 燃油日志，可筛选、编辑和删除本地加油记录。">
+  <meta name="description" content="Kinetic Oasis 手机版加油日志，可查看、筛选、编辑和删除本地记录。">
   <meta name="theme-color" content="#4d6300">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -15,30 +15,47 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body data-page="logs" data-nav-group="logs">
-  <div class="app-shell">
-    <header class="topbar">
-      <a class="icon-button" href="./index.html" aria-label="返回仪表盘">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M15 18 9 12l6-6"></path>
-        </svg>
-      </a>
-      <div class="topbar-copy">
-        <p class="eyebrow">Fuel Log</p>
-        <h1 class="page-title">加油日志</h1>
-        <p class="page-subtitle">筛选、编辑和清理所有本地记录。</p>
+  <header class="topbar">
+    <a class="icon-button" href="./index.html" aria-label="返回仪表盘">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M15 18 9 12l6-6"></path>
+      </svg>
+    </a>
+    <div class="topbar-brand topbar-brand-centered">
+      <div class="brand-copy">
+        <p class="eyebrow">Fuel Records</p>
+        <h1 class="brand-title">加油日志</h1>
       </div>
-      <a class="icon-button" href="./add.html" aria-label="新增记录">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 5v14"></path>
-          <path d="M5 12h14"></path>
-        </svg>
-      </a>
-    </header>
+    </div>
+    <a class="icon-button icon-button-primary" href="./add.html" aria-label="添加记录">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 5v14"></path>
+        <path d="M5 12h14"></path>
+      </svg>
+    </a>
+  </header>
 
+  <div class="app-shell">
     <main class="main-stack">
       <p class="notice-banner" id="pageFlash" hidden></p>
 
-      <section class="panel highlight">
+      <section class="hero-card hero-primary">
+        <div class="hero-layout">
+          <div>
+            <p class="hero-kicker">当前筛选支出</p>
+            <div class="hero-row">
+              <h2 class="hero-heading hero-heading-money" id="logsFilteredSpend">¥ 0.00</h2>
+            </div>
+          </div>
+          <div class="hero-chip-row">
+            <span class="hero-chip">记录数：<strong id="logsFilteredCount">0 条</strong></span>
+            <span class="hero-chip">总油量：<strong id="logsFilteredLiters">0.00 L</strong></span>
+          </div>
+          <p class="hero-copy" id="logsFilterSummary">当前展示 0 条记录。</p>
+        </div>
+      </section>
+
+      <section class="panel soft">
         <div class="section-head">
           <div>
             <p class="section-title">筛选条件</p>
@@ -67,28 +84,10 @@
           <label class="field">
             <span class="field-label">关键词</span>
             <div class="field-control">
-              <input class="field-input" id="logsSearch" type="search" placeholder="搜索油站、备注或油品">
+              <input class="field-input" id="logsSearch" type="search" placeholder="搜索油站、备注或日期">
             </div>
           </label>
         </div>
-      </section>
-
-      <section class="summary-strip">
-        <div class="summary-grid">
-          <div class="summary-item">
-            <span class="mini-label">筛选支出</span>
-            <strong class="summary-value" id="logsFilteredSpend">¥ 0.00</strong>
-          </div>
-          <div class="summary-item">
-            <span class="mini-label">记录数</span>
-            <strong class="summary-value" id="logsFilteredCount">0 条</strong>
-          </div>
-          <div class="summary-item">
-            <span class="mini-label">总油量</span>
-            <strong class="summary-value" id="logsFilteredLiters">0.00 L</strong>
-          </div>
-        </div>
-        <p class="muted" id="logsFilterSummary">当前展示 0 条记录。</p>
       </section>
 
       <section class="panel">
@@ -104,7 +103,7 @@
     </main>
   </div>
 
-  <a class="fab" href="./add.html" aria-label="新增加油记录">
+  <a class="fab" href="./add.html" aria-label="新增记录">
     <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M12 5v14"></path>
       <path d="M5 12h14"></path>
@@ -131,20 +130,21 @@
         </svg>
         <span class="nav-label">记录</span>
       </a>
-      <a class="nav-item" href="./stations.html" data-nav="stations">
+      <a class="nav-item" href="./stats.html" data-nav="stats">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7 20V6.5A2.5 2.5 0 0 1 9.5 4h4A2.5 2.5 0 0 1 16 6.5V20"></path>
-          <path d="M7 11h9"></path>
-          <path d="M16 8h2l1 2v5"></path>
+          <path d="M4 18h16"></path>
+          <path d="M7 15V9"></path>
+          <path d="M12 15V6"></path>
+          <path d="M17 15v-3"></path>
         </svg>
-        <span class="nav-label">油站</span>
+        <span class="nav-label">趋势</span>
       </a>
-      <a class="nav-item" href="./settings.html" data-nav="settings">
+      <a class="nav-item" href="./add.html" data-nav="add">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 8.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 1 0 12 8.5z"></path>
-          <path d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a1 1 0 0 1 0 1.4l-1.2 1.2a1 1 0 0 1-1.4 0l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V20a1 1 0 0 1-1 1h-1.8a1 1 0 0 1-1-1v-.1a1 1 0 0 0-.6-.9 1 1 0 0 0-1.1.2l-.1.1a1 1 0 0 1-1.4 0l-1.2-1.2a1 1 0 0 1 0-1.4l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H4a1 1 0 0 1-1-1v-1.8a1 1 0 0 1 1-1h.1a1 1 0 0 0 .9-.6 1 1 0 0 0-.2-1.1l-.1-.1a1 1 0 0 1 0-1.4l1.2-1.2a1 1 0 0 1 1.4 0l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V4a1 1 0 0 1 1-1h1.8a1 1 0 0 1 1 1v.1a1 1 0 0 0 .6.9 1 1 0 0 0 1.1-.2l.1-.1a1 1 0 0 1 1.4 0l1.2 1.2a1 1 0 0 1 0 1.4l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6H20a1 1 0 0 1 1 1v1.8a1 1 0 0 1-1 1h-.1a1 1 0 0 0-.9.6z"></path>
+          <path d="M12 5v14"></path>
+          <path d="M5 12h14"></path>
         </svg>
-        <span class="nav-label">设置</span>
+        <span class="nav-label">新增</span>
       </a>
     </nav>
   </div>

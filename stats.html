@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Kinetic Oasis 统计趋势页，展示支出、油耗、单价和关键洞察。">
+  <meta name="description" content="Kinetic Oasis 手机版统计趋势页，用于查看油耗、支出和价格变化。">
   <meta name="theme-color" content="#4d6300">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -14,109 +14,88 @@
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
   <link rel="stylesheet" href="./styles.css">
 </head>
-<body data-page="stats" data-nav-group="dashboard">
-  <div class="app-shell">
-    <header class="topbar">
-      <a class="icon-button" href="./index.html" aria-label="返回仪表盘">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M15 18 9 12l6-6"></path>
-        </svg>
-      </a>
-      <div class="topbar-copy">
-        <p class="eyebrow">Trend View</p>
-        <h1 class="page-title">统计趋势</h1>
-        <p class="page-subtitle">按本地记录自动汇总支出、油耗和油价变化。</p>
+<body data-page="stats" data-nav-group="stats">
+  <header class="topbar">
+    <a class="icon-button" href="./index.html" aria-label="返回仪表盘">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M15 18 9 12l6-6"></path>
+      </svg>
+    </a>
+    <div class="topbar-brand topbar-brand-centered">
+      <div class="brand-copy">
+        <p class="eyebrow">Analytics</p>
+        <h1 class="brand-title">统计趋势</h1>
       </div>
-      <a class="icon-button" href="./logs.html" aria-label="查看日志">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7 6h10"></path>
-          <path d="M7 12h10"></path>
-          <path d="M7 18h10"></path>
-          <path d="M4 6h.01"></path>
-          <path d="M4 12h.01"></path>
-          <path d="M4 18h.01"></path>
-        </svg>
-      </a>
-    </header>
+    </div>
+    <a class="icon-button icon-button-primary" href="./add.html" aria-label="添加记录">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 5v14"></path>
+        <path d="M5 12h14"></path>
+      </svg>
+    </a>
+  </header>
 
+  <div class="app-shell">
     <main class="main-stack">
       <section class="hero-card hero-primary">
-        <div class="hero-layout hero-layout-split">
+        <div class="hero-layout">
           <div>
             <p class="hero-kicker">本月平均油耗</p>
             <div class="hero-row">
               <h2 class="hero-heading" id="statsEfficiency">--</h2>
               <span class="hero-unit">L/100km</span>
             </div>
-            <p class="hero-copy">只统计完整满油区间，趋势更稳定，也更接近真实使用情况。</p>
           </div>
-          <div class="hero-side-stack">
-            <span class="hero-chip hero-chip-strong" id="statsTrendChip">
-              至少需要两段完整满油区间，才会显示月度变化。
-            </span>
-            <div class="hero-mini-panel">
-              <p class="mini-label">统计口径</p>
-              <strong>最近 6 个月 + 最近 7 条价格</strong>
-              <span>支出按月份汇总，单价按最近记录逐条绘制。</span>
-            </div>
+          <div class="hero-chip-row">
+            <span class="hero-chip hero-chip-strong" id="statsTrendChip">--</span>
           </div>
         </div>
       </section>
 
       <section class="metric-grid">
         <article class="metric-card metric-card-accent">
-          <p class="metric-label">本月支出</p>
-          <p class="metric-value" id="statsMonthlySpend">¥0.00</p>
-          <p class="metric-note">按当月全部记录累计。</p>
+          <p class="metric-label">本月油费</p>
+          <p class="metric-value" id="statsMonthlySpend">¥ 0.00</p>
         </article>
         <article class="metric-card">
           <p class="metric-label">加油次数</p>
           <p class="metric-value" id="statsMonthlyCount">0 次</p>
-          <p class="metric-note">本月共发生的加油笔数。</p>
         </article>
         <article class="metric-card">
           <p class="metric-label">平均单价</p>
           <p class="metric-value" id="statsAveragePrice">--</p>
-          <p class="metric-note">以本月总金额 / 总升数计算。</p>
         </article>
         <article class="metric-card">
           <p class="metric-label">单次均量</p>
           <p class="metric-value" id="statsAverageLiters">--</p>
-          <p class="metric-note">用于观察补油习惯变化。</p>
         </article>
       </section>
 
       <section class="panel chart-panel">
         <div class="section-head">
           <div>
-            <p class="section-title">最近 6 个月</p>
-            <h2>月度支出趋势</h2>
+            <p class="section-title">支出趋势</p>
+            <h2>最近 6 个月</h2>
           </div>
         </div>
-        <div class="chart-wrap">
-          <div class="chart-frame" id="statsSpendChart"></div>
-          <p class="chart-caption">按月份累计每条记录的总支出。</p>
-        </div>
+        <div class="chart-frame" id="statsSpendChart"></div>
       </section>
 
       <section class="panel soft chart-panel">
         <div class="section-head">
           <div>
-            <p class="section-title">最近 7 次</p>
-            <h2>单价变化</h2>
+            <p class="section-title">单价变化</p>
+            <h2>最近 7 条记录</h2>
           </div>
         </div>
-        <div class="chart-wrap">
-          <div class="chart-frame" id="statsPriceChart"></div>
-          <p class="chart-caption">按时间顺序展示最近七次记录的每升价格。</p>
-        </div>
+        <div class="chart-frame" id="statsPriceChart"></div>
       </section>
 
       <section class="panel highlight">
         <div class="section-head">
           <div>
             <p class="section-title">关键洞察</p>
-            <h2>自动提炼</h2>
+            <h2>自动生成摘要</h2>
           </div>
         </div>
         <div class="insight-list" id="statsInsights"></div>
@@ -145,20 +124,21 @@
         </svg>
         <span class="nav-label">记录</span>
       </a>
-      <a class="nav-item" href="./stations.html" data-nav="stations">
+      <a class="nav-item" href="./stats.html" data-nav="stats">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7 20V6.5A2.5 2.5 0 0 1 9.5 4h4A2.5 2.5 0 0 1 16 6.5V20"></path>
-          <path d="M7 11h9"></path>
-          <path d="M16 8h2l1 2v5"></path>
+          <path d="M4 18h16"></path>
+          <path d="M7 15V9"></path>
+          <path d="M12 15V6"></path>
+          <path d="M17 15v-3"></path>
         </svg>
-        <span class="nav-label">油站</span>
+        <span class="nav-label">趋势</span>
       </a>
-      <a class="nav-item" href="./settings.html" data-nav="settings">
+      <a class="nav-item" href="./add.html" data-nav="add">
         <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 8.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 1 0 12 8.5z"></path>
-          <path d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a1 1 0 0 1 0 1.4l-1.2 1.2a1 1 0 0 1-1.4 0l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V20a1 1 0 0 1-1 1h-1.8a1 1 0 0 1-1-1v-.1a1 1 0 0 0-.6-.9 1 1 0 0 0-1.1.2l-.1.1a1 1 0 0 1-1.4 0l-1.2-1.2a1 1 0 0 1 0-1.4l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H4a1 1 0 0 1-1-1v-1.8a1 1 0 0 1 1-1h.1a1 1 0 0 0 .9-.6 1 1 0 0 0-.2-1.1l-.1-.1a1 1 0 0 1 0-1.4l1.2-1.2a1 1 0 0 1 1.4 0l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V4a1 1 0 0 1 1-1h1.8a1 1 0 0 1 1 1v.1a1 1 0 0 0 .6.9 1 1 0 0 0 1.1-.2l.1-.1a1 1 0 0 1 1.4 0l1.2 1.2a1 1 0 0 1 0 1.4l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6H20a1 1 0 0 1 1 1v1.8a1 1 0 0 1-1 1h-.1a1 1 0 0 0-.9.6z"></path>
+          <path d="M12 5v14"></path>
+          <path d="M5 12h14"></path>
         </svg>
-        <span class="nav-label">设置</span>
+        <span class="nav-label">新增</span>
       </a>
     </nav>
   </div>

@@ -127,9 +127,9 @@ svg {
 .app-shell {
   position: relative;
   z-index: 1;
-  width: min(100%, 560px);
+  width: min(100%, 460px);
   margin: 0 auto;
-  padding: 22px 16px calc(132px + env(safe-area-inset-bottom));
+  padding: calc(94px + env(safe-area-inset-top)) 16px calc(132px + env(safe-area-inset-bottom));
 }
 
 .main-stack {
@@ -138,21 +138,35 @@ svg {
 }
 
 .topbar {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 30;
+  left: 50%;
+  z-index: 40;
   display: grid;
   grid-template-columns: 54px 1fr 54px;
   align-items: center;
   gap: 12px;
-  margin-bottom: 18px;
-  padding: 12px 0 16px;
-  background: linear-gradient(180deg, rgba(248, 252, 236, 0.92), rgba(248, 252, 236, 0.55));
-  backdrop-filter: blur(14px);
+  width: min(100%, 460px);
+  padding: calc(14px + env(safe-area-inset-top)) 16px 14px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, rgba(248, 252, 236, 0.96), rgba(248, 252, 236, 0.74));
+  backdrop-filter: blur(18px);
 }
 
-.topbar-copy {
+.topbar-copy,
+.brand-copy {
   min-width: 0;
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.topbar-brand-centered {
+  justify-content: center;
 }
 
 .eyebrow {
@@ -164,7 +178,8 @@ svg {
   text-transform: uppercase;
 }
 
-.page-title {
+.page-title,
+.brand-title {
   margin: 3px 0 0;
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 5vw, 2rem);
@@ -173,14 +188,22 @@ svg {
   color: var(--primary);
 }
 
-.topbar-copy .page-subtitle {
+.brand-title {
+  line-height: 1.02;
+}
+
+.topbar-copy .page-subtitle,
+.brand-copy .page-subtitle {
   margin: 6px 0 0;
   color: var(--text-soft);
   font-size: 0.88rem;
 }
 
 .icon-button,
-.avatar-chip {
+.icon-button-primary,
+.avatar-chip,
+.brand-mark,
+.brand-mark-static {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -193,8 +216,25 @@ svg {
   transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
 }
 
+.brand-mark,
+.brand-mark-static {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: var(--primary-ink);
+  background: linear-gradient(135deg, rgba(206, 252, 74, 0.96), rgba(255, 255, 255, 0.9));
+}
+
+.icon-button-primary {
+  color: var(--primary-ink);
+  background: linear-gradient(135deg, rgba(206, 252, 74, 0.96), rgba(237, 248, 193, 0.92));
+}
+
 .icon-button:hover,
+.icon-button-primary:hover,
 .avatar-chip:hover,
+.brand-mark:hover,
 .button:hover,
 .button-secondary:hover,
 .button-ghost:hover,
@@ -209,7 +249,9 @@ svg {
 }
 
 .icon-button:active,
+.icon-button-primary:active,
 .avatar-chip:active,
+.brand-mark:active,
 .button:active,
 .button-secondary:active,
 .button-ghost:active,
@@ -345,6 +387,10 @@ svg {
   line-height: 0.92;
   font-weight: 900;
   letter-spacing: -0.08em;
+}
+
+.hero-heading-money {
+  font-size: clamp(2.2rem, 11vw, 3.9rem);
 }
 
 .hero-row {
@@ -1077,7 +1123,7 @@ svg {
 
 .bottom-nav {
   pointer-events: auto;
-  width: min(100%, 560px);
+  width: min(100%, 460px);
   margin: 0 auto;
   padding: 12px 12px calc(14px + env(safe-area-inset-bottom));
   display: grid;
@@ -1121,7 +1167,7 @@ svg {
 
 .fab {
   position: fixed;
-  right: max(18px, calc((100vw - 560px) / 2 + 18px));
+  right: max(18px, calc((100vw - 460px) / 2 + 18px));
   bottom: calc(100px + env(safe-area-inset-bottom));
   z-index: 45;
   display: inline-flex;
@@ -1154,6 +1200,11 @@ svg {
     padding-right: 20px;
   }
 
+  .topbar {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .filters-grid,
   .field-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1167,10 +1218,16 @@ svg {
   }
 
   .topbar {
+    width: 100%;
     grid-template-columns: 50px 1fr 50px;
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
   .icon-button,
+  .icon-button-primary,
+  .brand-mark,
+  .brand-mark-static,
   .avatar-chip {
     width: 50px;
     height: 50px;

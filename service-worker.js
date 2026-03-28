@@ -1,4 +1,4 @@
-const CACHE_NAME = "kinetic-oasis-v3";
+const CACHE_NAME = "kinetic-oasis-v4";
 const APP_SHELL = [
   "./",
   "./index.html",
